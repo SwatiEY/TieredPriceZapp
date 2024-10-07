@@ -1,0 +1,9 @@
+node_modules
+*.DS_Store
+build/
+built/
+proving-files/
+zapps/
+test-zapps/
+orchestration/common/db
+.DS_Store

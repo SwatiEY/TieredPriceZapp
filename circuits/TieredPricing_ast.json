@@ -1,0 +1,2453 @@
+{
+    "nodeType": "Folder",
+    "files": [
+        {
+            "nodeType": "File",
+            "fileName": "addPriceTierItem",
+            "fileId": 125,
+            "fileExtension": ".zok",
+            "nodes": [
+                {
+                    "nodeType": "ImportStatementList",
+                    "imports": [
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "mapping",
+                            "name": "assetPriceTiers_sku",
+                            "id": 26,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "initialisationRequired": true,
+                            "mappingName": "assetPriceTiers",
+                            "mappingKeyName": "sku"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "PoKoSK",
+                            "name": "assetPriceTiers_sku",
+                            "id": 26,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "nullification",
+                            "name": "assetPriceTiers_sku",
+                            "id": 26,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentPreimage",
+                            "name": "assetPriceTiers_sku",
+                            "id": 26,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentExistence",
+                            "name": "assetPriceTiers_sku",
+                            "id": 26,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "newCommitment",
+                            "name": "assetPriceTiers_sku",
+                            "id": 26,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "initialisationRequired": true
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "StructDefinition",
+                    "name": "PriceTierItem",
+                    "members": [
+                        {
+                            "name": "minQuantity",
+                            "type": "field"
+                        },
+                        {
+                            "name": "price",
+                            "type": "field"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "main",
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "mapping",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true,
+                                "mappingName": "assetPriceTiers",
+                                "mappingKeyName": "sku"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "PoKoSK",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "nullification",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "newCommitment",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            }
+                        ],
+                        "statements": [
+                            {
+                                "nodeType": "ExpressionStatement",
+                                "expression": {
+                                    "nodeType": "Assignment",
+                                    "operator": "=",
+                                    "leftHandSide": {
+                                        "nodeType": "IndexAccess",
+                                        "baseExpression": {
+                                            "nodeType": "Identifier",
+                                            "name": "assetPriceTiers",
+                                            "typeName": {
+                                                "nodeType": "ElementaryTypeName",
+                                                "name": "mapping(uint256 => struct TieredPricing.PriceTierItem storage ref[9] storage ref)"
+                                            }
+                                        },
+                                        "indexExpression": {
+                                            "nodeType": "Identifier",
+                                            "name": "sku",
+                                            "typeName": {
+                                                "nodeType": "ElementaryTypeName",
+                                                "name": "uint256"
+                                            }
+                                        }
+                                    },
+                                    "rightHandSide": {
+                                        "nodeType": "Identifier",
+                                        "name": "priceTierItem",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "struct TieredPricing.PriceTierItem calldata[9] calldata"
+                                        }
+                                    }
+                                },
+                                "isVarDec": false,
+                                "id": 123,
+                                "isAccessed": false
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "mapping",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true,
+                                "mappingName": "assetPriceTiers",
+                                "mappingKeyName": "sku"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "PoKoSK",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "nullification",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "newCommitment",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "sku",
+                                "isPrivate": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "field"
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "priceTierItem",
+                                "isPrivate": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "field[9]"
+                                }
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "mapping",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true,
+                                "mappingName": "assetPriceTiers",
+                                "mappingKeyName": "sku"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "PoKoSK",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "nullification",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "newCommitment",
+                                "name": "assetPriceTiers_sku",
+                                "id": 26,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "initialisationRequired": true
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": []
+                    }
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "checkPO",
+            "fileId": 225,
+            "fileExtension": ".zok",
+            "nodes": [
+                {
+                    "nodeType": "ImportStatementList",
+                    "imports": [
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "mapping",
+                            "name": "assetPriceTiers_sku_index",
+                            "id": 26,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "mappingKeyTypeName": "local",
+                            "mappingName": "assetPriceTiers",
+                            "mappingKeyName": [
+                                "sku",
+                                "index"
+                            ]
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "PoKoSK",
+                            "name": "assetPriceTiers_sku_index",
+                            "id": 26,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "nullification",
+                            "name": "assetPriceTiers_sku_index",
+                            "id": 26,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentPreimage",
+                            "name": "assetPriceTiers_sku_index",
+                            "id": 26,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentExistence",
+                            "name": "assetPriceTiers_sku_index",
+                            "id": 26,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PriceTierItem",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "mapping",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local",
+                            "mappingName": "purchaseOrder",
+                            "mappingKeyName": [
+                                "purchaseOrderId",
+                                "index"
+                            ]
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "PoKoSK",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "nullification",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentPreimage",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentExistence",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "newCommitment",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "StructDefinition",
+                    "name": "PriceTierItem",
+                    "members": [
+                        {
+                            "name": "minQuantity",
+                            "type": "field"
+                        },
+                        {
+                            "name": "price",
+                            "type": "field"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "StructDefinition",
+                    "name": "PurchaseOrder",
+                    "members": [
+                        {
+                            "name": "sku",
+                            "type": "field"
+                        },
+                        {
+                            "name": "quantity",
+                            "type": "field"
+                        },
+                        {
+                            "name": "subTotal",
+                            "type": "field"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "main",
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "mapping",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "assetPriceTiers",
+                                "mappingKeyName": [
+                                    "sku",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "PoKoSK",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "nullification",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "mapping",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "purchaseOrder",
+                                "mappingKeyName": [
+                                    "purchaseOrderId",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "PoKoSK",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "nullification",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "newCommitment",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            }
+                        ],
+                        "statements": [
+                            {
+                                "nodeType": "ForStatement",
+                                "condition": {
+                                    "nodeType": "BinaryOperation",
+                                    "leftExpression": {
+                                        "nodeType": "Identifier",
+                                        "name": "index",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    },
+                                    "operator": "<",
+                                    "rightExpression": {
+                                        "nodeType": "Literal",
+                                        "value": "9"
+                                    }
+                                },
+                                "initializationExpression": {
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "declarations": [
+                                        {
+                                            "nodeType": "VariableDeclaration",
+                                            "name": "index",
+                                            "isPrivate": false,
+                                            "interactsWithSecret": true,
+                                            "declarationType": "localStack",
+                                            "typeName": {
+                                                "nodeType": "ElementaryTypeName",
+                                                "name": "field"
+                                            }
+                                        }
+                                    ],
+                                    "initialValue": {
+                                        "nodeType": "Literal",
+                                        "value": "0"
+                                    },
+                                    "interactsWithSecret": true
+                                },
+                                "loopExpression": {
+                                    "nodeType": "ExpressionStatement",
+                                    "expression": {
+                                        "nodeType": "UnaryOperation",
+                                        "operator": "++",
+                                        "prefix": false,
+                                        "subExpression": {
+                                            "nodeType": "Identifier",
+                                            "name": "index",
+                                            "typeName": null
+                                        },
+                                        "initialValue": {
+                                            "nodeType": "Identifier",
+                                            "name": "index",
+                                            "typeName": null
+                                        }
+                                    },
+                                    "isVarDec": false,
+                                    "id": 177,
+                                    "isAccessed": false
+                                },
+                                "body": {
+                                    "nodeType": "Block",
+                                    "preStatements": [],
+                                    "statements": [
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assert",
+                                                "arguments": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "memberName": "quantity",
+                                                            "expression": {
+                                                                "nodeType": "IndexAccess",
+                                                                "baseExpression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "order",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "struct TieredPricing.PurchaseOrder calldata[9] calldata"
+                                                                    }
+                                                                },
+                                                                "indexExpression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "index",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "uint256"
+                                                                    }
+                                                                },
+                                                                "isConstantArray": true
+                                                            },
+                                                            "isStruct": true
+                                                        },
+                                                        "operator": ">",
+                                                        "rightExpression": {
+                                                            "nodeType": "Literal",
+                                                            "value": "0"
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "require",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "function (bool,string memory) pure"
+                                                    }
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 187,
+                                            "isAccessed": false
+                                        },
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "sku",
+                                                    "isPrivate": false,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "field"
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "MemberAccess",
+                                                "memberName": "sku",
+                                                "expression": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "order",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "struct TieredPricing.PurchaseOrder calldata[9] calldata"
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "index",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    },
+                                                    "isConstantArray": true
+                                                },
+                                                "isStruct": true
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "tier",
+                                                    "isPrivate": true,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "PriceTierItem",
+                                                        "members": [
+                                                            {
+                                                                "name": "minQuantity",
+                                                                "type": "field"
+                                                            },
+                                                            {
+                                                                "name": "price",
+                                                                "type": "field"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "IndexAccess",
+                                                "baseExpression": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "assetPriceTiers",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "mapping(uint256 => struct TieredPricing.PriceTierItem storage ref[9] storage ref)"
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "sku",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    }
+                                                },
+                                                "indexExpression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "index",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "uint256"
+                                                    }
+                                                }
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assert",
+                                                "arguments": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "memberName": "price",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "tier",
+                                                                "typeName": {
+                                                                    "nodeType": "ElementaryTypeName",
+                                                                    "name": "struct TieredPricing.PriceTierItem memory"
+                                                                }
+                                                            },
+                                                            "isStruct": true
+                                                        },
+                                                        "operator": "!=",
+                                                        "rightExpression": {
+                                                            "nodeType": "Literal",
+                                                            "value": "0"
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "require",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "function (bool,string memory) pure"
+                                                    }
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 211,
+                                            "isAccessed": false
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assignment",
+                                                "operator": "=",
+                                                "leftHandSide": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "IndexAccess",
+                                                        "baseExpression": {
+                                                            "nodeType": "Identifier",
+                                                            "name": "purchaseOrder",
+                                                            "typeName": {
+                                                                "nodeType": "ElementaryTypeName",
+                                                                "name": "mapping(uint256 => struct TieredPricing.PurchaseOrder storage ref[9] storage ref)"
+                                                            }
+                                                        },
+                                                        "indexExpression": {
+                                                            "nodeType": "Identifier",
+                                                            "name": "purchaseOrderId",
+                                                            "typeName": {
+                                                                "nodeType": "ElementaryTypeName",
+                                                                "name": "uint256"
+                                                            }
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "index",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    }
+                                                },
+                                                "rightHandSide": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "order",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "struct TieredPricing.PurchaseOrder calldata[9] calldata"
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "index",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    },
+                                                    "isConstantArray": true
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 221,
+                                            "isAccessed": false
+                                        }
+                                    ],
+                                    "postStatements": []
+                                }
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "mapping",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "assetPriceTiers",
+                                "mappingKeyName": [
+                                    "sku",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "PoKoSK",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "nullification",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "mapping",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "purchaseOrder",
+                                "mappingKeyName": [
+                                    "purchaseOrderId",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "PoKoSK",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "nullification",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "newCommitment",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "order",
+                                "isPrivate": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "field[9]"
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "purchaseOrderId",
+                                "isPrivate": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "field"
+                                }
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "mapping",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "assetPriceTiers",
+                                "mappingKeyName": [
+                                    "sku",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "PoKoSK",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "nullification",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "assetPriceTiers_sku_index",
+                                "id": 26,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PriceTierItem",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "mapping",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "purchaseOrder",
+                                "mappingKeyName": [
+                                    "purchaseOrderId",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "PoKoSK",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "nullification",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "newCommitment",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": []
+                    }
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "checkInvoice",
+            "fileId": 318,
+            "fileExtension": ".zok",
+            "nodes": [
+                {
+                    "nodeType": "ImportStatementList",
+                    "imports": [
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "mapping",
+                            "name": "orderedQuantities_sku",
+                            "id": 30,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "mappingKeyTypeName": "local",
+                            "isAccessed": true,
+                            "initialisationRequired": true,
+                            "mappingName": "orderedQuantities",
+                            "mappingKeyName": "sku"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "PoKoSK",
+                            "name": "orderedQuantities_sku",
+                            "id": 30,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "mappingKeyTypeName": "local",
+                            "isAccessed": true,
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "nullification",
+                            "name": "orderedQuantities_sku",
+                            "id": 30,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "mappingKeyTypeName": "local",
+                            "isAccessed": true,
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentPreimage",
+                            "name": "orderedQuantities_sku",
+                            "id": 30,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "mappingKeyTypeName": "local",
+                            "isAccessed": true,
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentExistence",
+                            "name": "orderedQuantities_sku",
+                            "id": 30,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "mappingKeyTypeName": "local",
+                            "isAccessed": true,
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "newCommitment",
+                            "name": "orderedQuantities_sku",
+                            "id": 30,
+                            "isWhole": true,
+                            "isNullified": true,
+                            "isMapping": true,
+                            "mappingKeyTypeName": "local",
+                            "isAccessed": true,
+                            "initialisationRequired": true
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "mapping",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local",
+                            "mappingName": "purchaseOrder",
+                            "mappingKeyName": [
+                                "purchaseOrderId",
+                                "index"
+                            ]
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "PoKoSK",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "nullification",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentPreimage",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        },
+                        {
+                            "nodeType": "Boilerplate",
+                            "bpSection": "importStatements",
+                            "bpType": "oldCommitmentExistence",
+                            "name": "purchaseOrder_purchaseOrderId_index",
+                            "id": 50,
+                            "isWhole": true,
+                            "isMapping": true,
+                            "typeName": "PurchaseOrder",
+                            "mappingKeyTypeName": "local"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "StructDefinition",
+                    "name": "PurchaseOrder",
+                    "members": [
+                        {
+                            "name": "sku",
+                            "type": "field"
+                        },
+                        {
+                            "name": "quantity",
+                            "type": "field"
+                        },
+                        {
+                            "name": "subTotal",
+                            "type": "field"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "StructDefinition",
+                    "name": "Invoice",
+                    "members": [
+                        {
+                            "name": "sku",
+                            "type": "field"
+                        },
+                        {
+                            "name": "quantity",
+                            "type": "field"
+                        },
+                        {
+                            "name": "subTotal",
+                            "type": "field"
+                        }
+                    ]
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "main",
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "mapping",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true,
+                                "mappingName": "orderedQuantities",
+                                "mappingKeyName": "sku"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "PoKoSK",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "nullification",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "newCommitment",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "mapping",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "purchaseOrder",
+                                "mappingKeyName": [
+                                    "purchaseOrderId",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "PoKoSK",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "nullification",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "preStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            }
+                        ],
+                        "statements": [
+                            {
+                                "nodeType": "ForStatement",
+                                "condition": {
+                                    "nodeType": "BinaryOperation",
+                                    "leftExpression": {
+                                        "nodeType": "Identifier",
+                                        "name": "index",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    },
+                                    "operator": "<",
+                                    "rightExpression": {
+                                        "nodeType": "Literal",
+                                        "value": "9"
+                                    }
+                                },
+                                "initializationExpression": {
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "declarations": [
+                                        {
+                                            "nodeType": "VariableDeclaration",
+                                            "name": "index",
+                                            "isPrivate": false,
+                                            "interactsWithSecret": true,
+                                            "declarationType": "localStack",
+                                            "typeName": {
+                                                "nodeType": "ElementaryTypeName",
+                                                "name": "field"
+                                            }
+                                        }
+                                    ],
+                                    "initialValue": {
+                                        "nodeType": "Literal",
+                                        "value": "0"
+                                    },
+                                    "interactsWithSecret": true
+                                },
+                                "loopExpression": {
+                                    "nodeType": "ExpressionStatement",
+                                    "expression": {
+                                        "nodeType": "UnaryOperation",
+                                        "operator": "++",
+                                        "prefix": false,
+                                        "subExpression": {
+                                            "nodeType": "Identifier",
+                                            "name": "index",
+                                            "typeName": null
+                                        },
+                                        "initialValue": {
+                                            "nodeType": "Identifier",
+                                            "name": "index",
+                                            "typeName": null
+                                        }
+                                    },
+                                    "isVarDec": false,
+                                    "id": 254,
+                                    "isAccessed": false
+                                },
+                                "body": {
+                                    "nodeType": "Block",
+                                    "preStatements": [],
+                                    "statements": [
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "sku",
+                                                    "isPrivate": false,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "field"
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "MemberAccess",
+                                                "memberName": "sku",
+                                                "expression": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "invoice",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "struct TieredPricing.Invoice calldata[9] calldata"
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "index",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    },
+                                                    "isConstantArray": true
+                                                },
+                                                "isStruct": true
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "po",
+                                                    "isPrivate": true,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "PurchaseOrder",
+                                                        "members": [
+                                                            {
+                                                                "name": "sku",
+                                                                "type": "field"
+                                                            },
+                                                            {
+                                                                "name": "quantity",
+                                                                "type": "field"
+                                                            },
+                                                            {
+                                                                "name": "subTotal",
+                                                                "type": "field"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "IndexAccess",
+                                                "baseExpression": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "purchaseOrder",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "mapping(uint256 => struct TieredPricing.PurchaseOrder storage ref[9] storage ref)"
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "purchaseOrderId",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    }
+                                                },
+                                                "indexExpression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "index",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "uint256"
+                                                    }
+                                                }
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assert",
+                                                "arguments": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "BinaryOperation",
+                                                            "leftExpression": {
+                                                                "nodeType": "MemberAccess",
+                                                                "memberName": "quantity",
+                                                                "expression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "po",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "struct TieredPricing.PurchaseOrder memory"
+                                                                    }
+                                                                },
+                                                                "isStruct": true
+                                                            },
+                                                            "operator": "!=",
+                                                            "rightExpression": {
+                                                                "nodeType": "Literal",
+                                                                "value": "0"
+                                                            }
+                                                        },
+                                                        "operator": "&&",
+                                                        "rightExpression": {
+                                                            "nodeType": "BinaryOperation",
+                                                            "leftExpression": {
+                                                                "nodeType": "MemberAccess",
+                                                                "memberName": "subTotal",
+                                                                "expression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "po",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "struct TieredPricing.PurchaseOrder memory"
+                                                                    }
+                                                                },
+                                                                "isStruct": true
+                                                            },
+                                                            "operator": "!=",
+                                                            "rightExpression": {
+                                                                "nodeType": "Literal",
+                                                                "value": "0"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "require",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "function (bool,string memory) pure"
+                                                    }
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 283,
+                                            "isAccessed": false
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assert",
+                                                "arguments": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "memberName": "quantity",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "po",
+                                                                "typeName": {
+                                                                    "nodeType": "ElementaryTypeName",
+                                                                    "name": "struct TieredPricing.PurchaseOrder memory"
+                                                                }
+                                                            },
+                                                            "isStruct": true
+                                                        },
+                                                        "operator": "==",
+                                                        "rightExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "memberName": "quantity",
+                                                            "expression": {
+                                                                "nodeType": "IndexAccess",
+                                                                "baseExpression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "invoice",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "struct TieredPricing.Invoice calldata[9] calldata"
+                                                                    }
+                                                                },
+                                                                "indexExpression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "index",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "uint256"
+                                                                    }
+                                                                },
+                                                                "isConstantArray": true
+                                                            },
+                                                            "isStruct": true
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "require",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "function (bool,string memory) pure"
+                                                    }
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 294,
+                                            "isAccessed": false
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assert",
+                                                "arguments": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "memberName": "subTotal",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "po",
+                                                                "typeName": {
+                                                                    "nodeType": "ElementaryTypeName",
+                                                                    "name": "struct TieredPricing.PurchaseOrder memory"
+                                                                }
+                                                            },
+                                                            "isStruct": true
+                                                        },
+                                                        "operator": "==",
+                                                        "rightExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "memberName": "subTotal",
+                                                            "expression": {
+                                                                "nodeType": "IndexAccess",
+                                                                "baseExpression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "invoice",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "struct TieredPricing.Invoice calldata[9] calldata"
+                                                                    }
+                                                                },
+                                                                "indexExpression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "index",
+                                                                    "typeName": {
+                                                                        "nodeType": "ElementaryTypeName",
+                                                                        "name": "uint256"
+                                                                    }
+                                                                },
+                                                                "isConstantArray": true
+                                                            },
+                                                            "isStruct": true
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "require",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "function (bool,string memory) pure"
+                                                    }
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 305,
+                                            "isAccessed": false
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "expression": {
+                                                "nodeType": "Assignment",
+                                                "operator": "=",
+                                                "leftHandSide": {
+                                                    "nodeType": "IndexAccess",
+                                                    "baseExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "orderedQuantities",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "mapping(uint256 => uint256)"
+                                                        }
+                                                    },
+                                                    "indexExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "sku",
+                                                        "typeName": {
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "name": "uint256"
+                                                        }
+                                                    }
+                                                },
+                                                "rightHandSide": {
+                                                    "nodeType": "BinaryOperation",
+                                                    "leftExpression": {
+                                                        "nodeType": "IndexAccess",
+                                                        "baseExpression": {
+                                                            "nodeType": "Identifier",
+                                                            "name": "orderedQuantities",
+                                                            "typeName": {
+                                                                "nodeType": "ElementaryTypeName",
+                                                                "name": "mapping(uint256 => uint256)"
+                                                            }
+                                                        },
+                                                        "indexExpression": {
+                                                            "nodeType": "Identifier",
+                                                            "name": "sku",
+                                                            "typeName": {
+                                                                "nodeType": "ElementaryTypeName",
+                                                                "name": "uint256"
+                                                            }
+                                                        }
+                                                    },
+                                                    "operator": "+",
+                                                    "rightExpression": {
+                                                        "nodeType": "MemberAccess",
+                                                        "memberName": "quantity",
+                                                        "expression": {
+                                                            "nodeType": "IndexAccess",
+                                                            "baseExpression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "invoice",
+                                                                "typeName": {
+                                                                    "nodeType": "ElementaryTypeName",
+                                                                    "name": "struct TieredPricing.Invoice calldata[9] calldata"
+                                                                }
+                                                            },
+                                                            "indexExpression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "index",
+                                                                "typeName": {
+                                                                    "nodeType": "ElementaryTypeName",
+                                                                    "name": "uint256"
+                                                                }
+                                                            },
+                                                            "isConstantArray": true
+                                                        },
+                                                        "isStruct": true
+                                                    }
+                                                }
+                                            },
+                                            "isVarDec": false,
+                                            "id": 314,
+                                            "isAccessed": false
+                                        }
+                                    ],
+                                    "postStatements": []
+                                }
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "mapping",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true,
+                                "mappingName": "orderedQuantities",
+                                "mappingKeyName": "sku"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "PoKoSK",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "nullification",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "newCommitment",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "mapping",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "purchaseOrder",
+                                "mappingKeyName": [
+                                    "purchaseOrderId",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "PoKoSK",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "nullification",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "postStatements",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "invoice",
+                                "isPrivate": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "field[9]"
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "purchaseOrderId",
+                                "isPrivate": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "field"
+                                }
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "mapping",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true,
+                                "mappingName": "orderedQuantities",
+                                "mappingKeyName": "sku"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "PoKoSK",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "nullification",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "newCommitment",
+                                "name": "orderedQuantities_sku",
+                                "id": 30,
+                                "isWhole": true,
+                                "isNullified": true,
+                                "isMapping": true,
+                                "mappingKeyTypeName": "local",
+                                "isAccessed": true,
+                                "initialisationRequired": true
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "mapping",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local",
+                                "mappingName": "purchaseOrder",
+                                "mappingKeyName": [
+                                    "purchaseOrderId",
+                                    "index"
+                                ]
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "PoKoSK",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "nullification",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentPreimage",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            },
+                            {
+                                "nodeType": "Boilerplate",
+                                "bpSection": "parameters",
+                                "bpType": "oldCommitmentExistence",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 50,
+                                "isWhole": true,
+                                "isMapping": true,
+                                "typeName": "PurchaseOrder",
+                                "mappingKeyTypeName": "local"
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": []
+                    }
+                }
+            ]
+        }
+    ]
+}

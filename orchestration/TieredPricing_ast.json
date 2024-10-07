@@ -1,0 +1,2164 @@
+{
+    "nodeType": "Folder",
+    "files": [
+        {
+            "nodeType": "File",
+            "fileName": "test",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "IntegrationTestBoilerplate",
+                    "contractName": "TieredPricingShield",
+                    "functions": [
+                        {
+                            "nodeType": "IntegrationTestFunction",
+                            "name": "addPriceTierItem",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "sku",
+                                        "id": 100,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "priceTierItem",
+                                        "id": 105,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "[9]",
+                                            "isConstantArray": true
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "assetPriceTiers_sku",
+                                        "id": 0,
+                                        "isSecret": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "mapping(uint256 => struct TieredPricing.PriceTierItem storage ref[9] storage ref)"
+                                        }
+                                    }
+                                ]
+                            },
+                            "decrementsSecretState": false,
+                            "newCommitmentsRequired": true
+                        },
+                        {
+                            "nodeType": "IntegrationTestFunction",
+                            "name": "checkPO",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "order",
+                                        "id": 150,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "[9]",
+                                            "isConstantArray": true
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrderId",
+                                        "id": 152,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrder_purchaseOrderId_index",
+                                        "id": 0,
+                                        "isSecret": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "mapping(uint256 => struct TieredPricing.PurchaseOrder storage ref[9] storage ref)"
+                                        }
+                                    }
+                                ]
+                            },
+                            "decrementsSecretState": false,
+                            "newCommitmentsRequired": true
+                        },
+                        {
+                            "nodeType": "IntegrationTestFunction",
+                            "name": "checkInvoice",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "invoice",
+                                        "id": 230,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "[9]",
+                                            "isConstantArray": true
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrderId",
+                                        "id": 232,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "orderedQuantities_sku",
+                                        "id": 0,
+                                        "isSecret": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "mapping(uint256 => uint256)"
+                                        }
+                                    }
+                                ]
+                            },
+                            "decrementsSecretState": false,
+                            "newCommitmentsRequired": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nodeType": "SetupCommonFilesBoilerplate",
+            "contractName": "TieredPricingShield",
+            "functionNames": [
+                "addPriceTierItem",
+                "checkPO",
+                "checkInvoice"
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "api_services",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "IntegrationApiServicesBoilerplate",
+                    "contractName": "TieredPricingShield",
+                    "functionNames": [
+                        "addPriceTierItem",
+                        "addSeller",
+                        "checkPO",
+                        "checkInvoice"
+                    ],
+                    "functions": [
+                        {
+                            "nodeType": "IntegrationApiServiceFunction",
+                            "name": "addPriceTierItem",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "sku",
+                                        "id": 100,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "priceTierItem",
+                                        "id": 105,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "[9]",
+                                            "isConstantArray": true
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "assetPriceTiers_sku",
+                                        "id": 0,
+                                        "isSecret": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "mapping(uint256 => struct TieredPricing.PriceTierItem storage ref[9] storage ref)"
+                                        }
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [],
+                                "modifiedStateVariables": []
+                            },
+                            "decrementsSecretState": [],
+                            "isConstructor": false,
+                            "newCommitmentsRequired": true
+                        },
+                        {
+                            "nodeType": "IntegrationPublicApiServiceFunction",
+                            "name": "addSeller",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "_seller",
+                                        "id": 127,
+                                        "isSecret": false,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "address"
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": []
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [],
+                                "modifiedStateVariables": []
+                            },
+                            "isConstructor": false,
+                            "newCommitmentsRequired": false
+                        },
+                        {
+                            "nodeType": "IntegrationApiServiceFunction",
+                            "name": "checkPO",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "order",
+                                        "id": 150,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "[9]",
+                                            "isConstantArray": true
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrderId",
+                                        "id": 152,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrder_purchaseOrderId_index",
+                                        "id": 0,
+                                        "isSecret": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "mapping(uint256 => struct TieredPricing.PurchaseOrder storage ref[9] storage ref)"
+                                        }
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [],
+                                "modifiedStateVariables": []
+                            },
+                            "decrementsSecretState": [],
+                            "isConstructor": false,
+                            "newCommitmentsRequired": true
+                        },
+                        {
+                            "nodeType": "IntegrationApiServiceFunction",
+                            "name": "checkInvoice",
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "invoice",
+                                        "id": 230,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "[9]",
+                                            "isConstantArray": true
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrderId",
+                                        "id": 232,
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "uint256"
+                                        }
+                                    }
+                                ],
+                                "modifiedStateVariables": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "orderedQuantities_sku",
+                                        "id": 0,
+                                        "isSecret": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "name": "mapping(uint256 => uint256)"
+                                        }
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [],
+                                "modifiedStateVariables": []
+                            },
+                            "decrementsSecretState": [],
+                            "isConstructor": false,
+                            "newCommitmentsRequired": true
+                        }
+                    ],
+                    "constructorParams": [],
+                    "contractImports": []
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "api_routes",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "IntegrationApiRoutesBoilerplate",
+                    "contractName": "TieredPricingShield",
+                    "functions": [
+                        {
+                            "nodeType": "IntegrationApiRoutesFunction",
+                            "name": "addPriceTierItem"
+                        },
+                        {
+                            "nodeType": "IntegrationApiRoutesFunction",
+                            "name": "addSeller"
+                        },
+                        {
+                            "nodeType": "IntegrationApiRoutesFunction",
+                            "name": "checkPO"
+                        },
+                        {
+                            "nodeType": "IntegrationApiRoutesFunction",
+                            "name": "checkInvoice"
+                        }
+                    ],
+                    "contractImports": []
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "BackupDataRetriever",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "BackupDataRetrieverBoilerplate",
+                    "contractName": "TieredPricingShield",
+                    "privateStates": [
+                        {
+                            "privateStateName": "assetPriceTiers_sku",
+                            "stateVarId": [
+                                26,
+                                "sku"
+                            ],
+                            "mappingKey": "sku",
+                            "mappingName": "assetPriceTiers",
+                            "isWhole": true,
+                            "nullifierRequired": true,
+                            "structProperties": null,
+                            "isOwned": true,
+                            "owner": "seller"
+                        },
+                        {
+                            "privateStateName": "orderedQuantities_sku",
+                            "stateVarId": [
+                                30,
+                                "sku"
+                            ],
+                            "mappingKey": "sku",
+                            "mappingName": "orderedQuantities",
+                            "isWhole": true,
+                            "nullifierRequired": true,
+                            "structProperties": null,
+                            "owner": null,
+                            "ownerIsSecret": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "BackupVariable",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "BackupVariableBoilerplate",
+                    "contractName": "TieredPricingShield",
+                    "privateStates": [
+                        {
+                            "privateStateName": "assetPriceTiers_sku",
+                            "stateVarId": [
+                                26,
+                                "sku"
+                            ],
+                            "mappingKey": "sku",
+                            "mappingName": "assetPriceTiers",
+                            "isWhole": true,
+                            "nullifierRequired": true,
+                            "structProperties": null,
+                            "isOwned": true,
+                            "owner": "seller"
+                        },
+                        {
+                            "privateStateName": "orderedQuantities_sku",
+                            "stateVarId": [
+                                30,
+                                "sku"
+                            ],
+                            "mappingKey": "sku",
+                            "mappingName": "orderedQuantities",
+                            "isWhole": true,
+                            "nullifierRequired": true,
+                            "structProperties": null,
+                            "owner": null,
+                            "ownerIsSecret": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nodeType": "EditableCommitmentCommonFilesBoilerplate"
+        },
+        {
+            "nodeType": "File",
+            "fileName": "addPriceTierItem",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "Imports",
+                    "imports": []
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "addPriceTierItem",
+                    "contractName": "TieredPricingShield",
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "sku",
+                                "id": 100,
+                                "isSecret": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "uint256"
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "priceTierItem",
+                                "id": 105,
+                                "isSecret": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "[9]",
+                                    "isConstantArray": true
+                                }
+                            }
+                        ],
+                        "modifiedStateVariables": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "assetPriceTiers_sku",
+                                "id": 0,
+                                "isSecret": true,
+                                "declarationType": "state",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "mapping(uint256 => struct TieredPricing.PriceTierItem storage ref[9] storage ref)"
+                                }
+                            }
+                        ]
+                    },
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [
+                            {
+                                "nodeType": "InitialiseKeys",
+                                "contractName": "TieredPricingShield",
+                                "onChainKeyRegistry": true
+                            },
+                            {
+                                "nodeType": "InitialisePreimage",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "privateStateName": "assetPriceTiers_sku",
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "accessedOnly": false,
+                                        "mappingKey": "sku",
+                                        "mappingName": "assetPriceTiers",
+                                        "structProperties": null
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "ReadPreimage",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "sku",
+                                        "mappingName": "assetPriceTiers",
+                                        "nullifierRequired": true,
+                                        "initialised": true,
+                                        "isOwned": true,
+                                        "owner": "seller",
+                                        "ownerIsParam": false
+                                    }
+                                },
+                                "contractName": "TieredPricingShield"
+                            }
+                        ],
+                        "statements": [
+                            {
+                                "nodeType": "ExpressionStatement",
+                                "id": 117,
+                                "expression": {
+                                    "nodeType": "RequireStatement",
+                                    "condition": [
+                                        {
+                                            "nodeType": "BinaryOperation",
+                                            "leftExpression": {
+                                                "nodeType": "MsgSender"
+                                            },
+                                            "operator": "==",
+                                            "rightExpression": {
+                                                "nodeType": "Identifier",
+                                                "name": "seller",
+                                                "subType": "address"
+                                            }
+                                        }
+                                    ],
+                                    "message": [
+                                        {
+                                            "nodeType": "Literal",
+                                            "value": "Caller is unauthorised, it must be a seller"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclarationStatement",
+                                "id": 123,
+                                "interactsWithSecret": true,
+                                "declarations": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "assetPriceTiers_sku",
+                                        "id": 26,
+                                        "isSecret": true,
+                                        "isAccessed": false,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName"
+                                        }
+                                    }
+                                ],
+                                "initialValue": {
+                                    "nodeType": "Assignment",
+                                    "operator": "=",
+                                    "leftHandSide": {
+                                        "nodeType": "Identifier",
+                                        "name": "assetPriceTiers_sku",
+                                        "subType": "struct TieredPricing.PriceTierItem storage ref[9] storage ref"
+                                    },
+                                    "rightHandSide": {
+                                        "nodeType": "Identifier",
+                                        "name": "priceTierItem",
+                                        "subType": "struct TieredPricing.PriceTierItem calldata[9] calldata"
+                                    }
+                                }
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "MembershipWitness",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "privateStateName": "assetPriceTiers_sku",
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingName": "assetPriceTiers"
+                                    }
+                                },
+                                "contractName": "TieredPricingShield"
+                            },
+                            {
+                                "nodeType": "CalculateNullifier",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "accessedOnly": false,
+                                        "isSharedSecret": false,
+                                        "isWhole": true
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "CalculateCommitment",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "privateStateName": "assetPriceTiers_sku",
+                                        "newCommitmentValue": null,
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "nullifierRequired": true,
+                                        "structProperties": null,
+                                        "isOwned": true,
+                                        "owner": "seller"
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "GenerateProof",
+                                "circuitName": "addPriceTierItem",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "privateStateName": "assetPriceTiers_sku",
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "nullifierRequired": true,
+                                        "structProperties": null,
+                                        "isMapping": true,
+                                        "isWhole": true,
+                                        "isOwned": true,
+                                        "originalMappingKeyName": [
+                                            "sku"
+                                        ],
+                                        "initialisationRequired": true,
+                                        "owner": "seller",
+                                        "localMappingKey": false
+                                    }
+                                },
+                                "parameters": [
+                                    "assetPriceTiers_sku",
+                                    "sku",
+                                    "priceTierItem.all"
+                                ]
+                            },
+                            {
+                                "nodeType": "EncryptBackupPreimage",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "privateStateName": "assetPriceTiers_sku",
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "mappingKey": "sku",
+                                        "mappingName": "assetPriceTiers",
+                                        "isWhole": true,
+                                        "nullifierRequired": true,
+                                        "structProperties": null,
+                                        "isOwned": true,
+                                        "owner": "seller"
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "SendTransaction",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "isWhole": true,
+                                        "nullifierRequired": true
+                                    }
+                                },
+                                "functionName": "addPriceTierItem",
+                                "contractName": "TieredPricingShield",
+                                "publicInputs": [],
+                                "returnInputs": []
+                            },
+                            {
+                                "nodeType": "WritePreimage",
+                                "privateStates": {
+                                    "assetPriceTiers_sku": {
+                                        "stateVarId": [
+                                            26,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "sku",
+                                        "mappingName": "assetPriceTiers",
+                                        "nullifierRequired": true,
+                                        "isOwned": true,
+                                        "owner": "seller"
+                                    }
+                                },
+                                "contractName": "TieredPricingShield",
+                                "onChainKeyRegistry": true
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [],
+                        "modifiedStateVariables": []
+                    }
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "addSeller",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "Imports",
+                    "imports": []
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "addSeller",
+                    "contractName": "TieredPricingShield",
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "_seller",
+                                "id": 127,
+                                "isSecret": false,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "address"
+                                }
+                            }
+                        ],
+                        "modifiedStateVariables": []
+                    },
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [],
+                        "statements": [
+                            {
+                                "nodeType": "ExpressionStatement",
+                                "id": 139,
+                                "expression": {
+                                    "nodeType": "RequireStatement",
+                                    "condition": [
+                                        {
+                                            "nodeType": "BinaryOperation",
+                                            "leftExpression": {
+                                                "nodeType": "MsgSender"
+                                            },
+                                            "operator": "==",
+                                            "rightExpression": {
+                                                "nodeType": "Identifier",
+                                                "name": "seller",
+                                                "subType": "address"
+                                            }
+                                        }
+                                    ],
+                                    "message": [
+                                        {
+                                            "nodeType": "Literal",
+                                            "value": "Caller is unauthorised, it must be a seller"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "nodeType": "ExpressionStatement",
+                                "id": 143,
+                                "expression": {
+                                    "nodeType": "Assignment",
+                                    "operator": "=",
+                                    "leftHandSide": {
+                                        "nodeType": "Identifier",
+                                        "name": "seller",
+                                        "subType": "address"
+                                    },
+                                    "rightHandSide": {
+                                        "nodeType": "Identifier",
+                                        "name": "_seller",
+                                        "subType": "address"
+                                    }
+                                }
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "SendPublicTransaction",
+                                "functionName": "addSeller",
+                                "publicInputs": [
+                                    {
+                                        "name": "_seller",
+                                        "isAddress": true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [],
+                        "modifiedStateVariables": []
+                    },
+                    "publicInputs": [
+                        "_seller"
+                    ]
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "checkPO",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "Imports",
+                    "imports": []
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "checkPO",
+                    "contractName": "TieredPricingShield",
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "order",
+                                "id": 150,
+                                "isSecret": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "[9]",
+                                    "isConstantArray": true
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "purchaseOrderId",
+                                "id": 152,
+                                "isSecret": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "uint256"
+                                }
+                            }
+                        ],
+                        "modifiedStateVariables": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "purchaseOrder_purchaseOrderId_index",
+                                "id": 0,
+                                "isSecret": true,
+                                "declarationType": "state",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "mapping(uint256 => struct TieredPricing.PurchaseOrder storage ref[9] storage ref)"
+                                }
+                            }
+                        ]
+                    },
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [
+                            {
+                                "nodeType": "InitialiseKeys",
+                                "contractName": "TieredPricingShield",
+                                "onChainKeyRegistry": true
+                            },
+                            {
+                                "nodeType": "InitialisePreimage",
+                                "privateStates": {
+                                    "assetPriceTiers_sku_index": {
+                                        "privateStateName": "assetPriceTiers_sku_index",
+                                        "stateVarId": [
+                                            26,
+                                            "sku",
+                                            "index"
+                                        ],
+                                        "accessedOnly": true,
+                                        "mappingKey": "index",
+                                        "mappingName": "assetPriceTiers",
+                                        "structProperties": null
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "privateStateName": "purchaseOrder_purchaseOrderId_index",
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "accessedOnly": false,
+                                        "mappingKey": "index",
+                                        "mappingName": "purchaseOrder",
+                                        "structProperties": null
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "ReadPreimage",
+                                "privateStates": {
+                                    "assetPriceTiers_sku_index": {
+                                        "stateVarId": [
+                                            26,
+                                            "sku",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "index",
+                                        "mappingName": "assetPriceTiers",
+                                        "nullifierRequired": false,
+                                        "accessedOnly": true,
+                                        "initialised": true,
+                                        "isOwned": true,
+                                        "owner": "seller",
+                                        "ownerIsParam": false
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "index",
+                                        "mappingName": "purchaseOrder",
+                                        "nullifierRequired": true,
+                                        "initialised": true,
+                                        "isOwned": true,
+                                        "ownerIsParam": false
+                                    }
+                                },
+                                "contractName": "TieredPricingShield"
+                            }
+                        ],
+                        "statements": [
+                            {
+                                "nodeType": "ExpressionStatement",
+                                "id": 167,
+                                "expression": {
+                                    "nodeType": "RequireStatement",
+                                    "condition": [
+                                        {
+                                            "nodeType": "BinaryOperation",
+                                            "leftExpression": {
+                                                "nodeType": "Identifier",
+                                                "name": "buyers_msgSender",
+                                                "subType": "address"
+                                            },
+                                            "operator": "==",
+                                            "rightExpression": {
+                                                "nodeType": "MsgSender"
+                                            }
+                                        }
+                                    ],
+                                    "message": [
+                                        {
+                                            "nodeType": "Literal",
+                                            "value": "Caller is unauthorised, it must be a buyer"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "nodeType": "ForStatement",
+                                "condition": {
+                                    "nodeType": "BinaryOperation",
+                                    "leftExpression": {
+                                        "nodeType": "Identifier",
+                                        "name": "index",
+                                        "subType": "uint256"
+                                    },
+                                    "operator": "<",
+                                    "rightExpression": {
+                                        "nodeType": "Literal",
+                                        "value": "9"
+                                    }
+                                },
+                                "initializationExpression": {
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "id": 171,
+                                    "interactsWithSecret": true,
+                                    "declarations": [
+                                        {
+                                            "nodeType": "VariableDeclaration",
+                                            "name": "index",
+                                            "id": 169,
+                                            "isSecret": false,
+                                            "interactsWithSecret": true,
+                                            "declarationType": "localStack",
+                                            "typeName": {
+                                                "nodeType": "ElementaryTypeName",
+                                                "name": "uint256"
+                                            }
+                                        }
+                                    ],
+                                    "initialValue": {
+                                        "nodeType": "Literal",
+                                        "value": "0"
+                                    },
+                                    "isInitializationExpression": true
+                                },
+                                "interactsWithSecret": true,
+                                "loopExpression": {
+                                    "nodeType": "ExpressionStatement",
+                                    "id": 177,
+                                    "expression": {
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "leftHandSide": {
+                                            "nodeType": "Identifier",
+                                            "name": "index",
+                                            "subType": "uint256"
+                                        },
+                                        "rightHandSide": {
+                                            "nodeType": "UnaryOperation",
+                                            "operator": "++",
+                                            "prefix": false,
+                                            "subExpression": {
+                                                "nodeType": "Identifier",
+                                                "name": "index",
+                                                "subType": "uint256"
+                                            }
+                                        }
+                                    },
+                                    "interactsWithSecret": true
+                                },
+                                "body": {
+                                    "nodeType": "Block",
+                                    "preStatements": [],
+                                    "statements": [
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 187,
+                                            "expression": {
+                                                "nodeType": "RequireStatement",
+                                                "condition": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "name": "order_index",
+                                                            "memberName": "quantity",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "order[index]",
+                                                                "subType": "struct TieredPricing.PurchaseOrder calldata"
+                                                            },
+                                                            "subType": "uint256"
+                                                        },
+                                                        "operator": ">",
+                                                        "rightExpression": {
+                                                            "nodeType": "Literal",
+                                                            "value": "0"
+                                                        }
+                                                    }
+                                                ],
+                                                "message": [
+                                                    {
+                                                        "nodeType": "Literal",
+                                                        "value": "Quantity should be greater than zero"
+                                                    }
+                                                ]
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "id": 194,
+                                            "interactsWithSecret": true,
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "sku",
+                                                    "id": 189,
+                                                    "isSecret": false,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "uint256"
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "MemberAccess",
+                                                "name": "order_index",
+                                                "memberName": "sku",
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "order[index]",
+                                                    "subType": "struct TieredPricing.PurchaseOrder calldata"
+                                                },
+                                                "subType": "uint256"
+                                            }
+                                        },
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "id": 203,
+                                            "interactsWithSecret": true,
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "tier",
+                                                    "id": 197,
+                                                    "isSecret": true,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "PriceTierItem",
+                                                        "properties": [
+                                                            {
+                                                                "name": "minQuantity",
+                                                                "type": "uint256"
+                                                            },
+                                                            {
+                                                                "name": "price",
+                                                                "type": "uint256"
+                                                            }
+                                                        ],
+                                                        "isStruct": true
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "Identifier",
+                                                "name": "assetPriceTiers_sku_index",
+                                                "subType": "struct TieredPricing.PriceTierItem storage ref"
+                                            }
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 211,
+                                            "expression": {
+                                                "nodeType": "RequireStatement",
+                                                "condition": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "name": "tier",
+                                                            "memberName": "price",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "tier",
+                                                                "subType": "struct TieredPricing.PriceTierItem memory"
+                                                            },
+                                                            "subType": "uint256"
+                                                        },
+                                                        "operator": "!=",
+                                                        "rightExpression": {
+                                                            "nodeType": "Literal",
+                                                            "value": "0"
+                                                        }
+                                                    }
+                                                ],
+                                                "message": [
+                                                    {
+                                                        "nodeType": "Literal",
+                                                        "value": "Price tier does not exists in the contract"
+                                                    }
+                                                ]
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 221,
+                                            "expression": {
+                                                "nodeType": "Assignment",
+                                                "operator": "=",
+                                                "leftHandSide": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "purchaseOrder_purchaseOrderId_index",
+                                                    "subType": "struct TieredPricing.PurchaseOrder storage ref"
+                                                },
+                                                "rightHandSide": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "order[index]",
+                                                    "subType": "struct TieredPricing.PurchaseOrder calldata"
+                                                }
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "Assignment",
+                                            "operator": "=",
+                                            "leftHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "purchaseOrder_purchaseOrderId",
+                                                "subType": ""
+                                            },
+                                            "rightHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "purchaseOrder_purchaseOrderId",
+                                                "subType": "generalNumber"
+                                            }
+                                        }
+                                    ],
+                                    "postStatements": []
+                                }
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "MembershipWitness",
+                                "privateStates": {
+                                    "assetPriceTiers_sku_index": {
+                                        "stateVarId": [
+                                            26,
+                                            "sku",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "privateStateName": "assetPriceTiers_sku_index",
+                                        "accessedOnly": true,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingName": "assetPriceTiers"
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "privateStateName": "purchaseOrder_purchaseOrderId_index",
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingName": "purchaseOrder"
+                                    }
+                                },
+                                "contractName": "TieredPricingShield"
+                            },
+                            {
+                                "nodeType": "CalculateNullifier",
+                                "privateStates": {
+                                    "assetPriceTiers_sku_index": {
+                                        "accessedOnly": true,
+                                        "isSharedSecret": false,
+                                        "isWhole": true
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "accessedOnly": false,
+                                        "isSharedSecret": false,
+                                        "isWhole": true
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "CalculateCommitment",
+                                "privateStates": {}
+                            },
+                            {
+                                "nodeType": "GenerateProof",
+                                "circuitName": "checkPO",
+                                "privateStates": {
+                                    "assetPriceTiers_sku_index": {
+                                        "privateStateName": "assetPriceTiers_sku_index",
+                                        "stateVarId": [
+                                            26,
+                                            "sku",
+                                            "index"
+                                        ],
+                                        "accessedOnly": true,
+                                        "isSharedSecret": false,
+                                        "nullifierRequired": false,
+                                        "structProperties": null,
+                                        "isMapping": true,
+                                        "isWhole": true,
+                                        "isOwned": true,
+                                        "originalMappingKeyName": [
+                                            "sku",
+                                            "index"
+                                        ],
+                                        "owner": "seller",
+                                        "localMappingKey": true
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "privateStateName": "purchaseOrder_purchaseOrderId_index",
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "nullifierRequired": true,
+                                        "structProperties": null,
+                                        "isMapping": true,
+                                        "isWhole": true,
+                                        "isOwned": true,
+                                        "originalMappingKeyName": [
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "localMappingKey": true
+                                    }
+                                },
+                                "parameters": [
+                                    "purchaseOrder_purchaseOrderId_index",
+                                    "order.all",
+                                    "purchaseOrderId"
+                                ]
+                            },
+                            {
+                                "nodeType": "EncryptBackupPreimage",
+                                "privateStates": {}
+                            },
+                            {
+                                "nodeType": "SendTransaction",
+                                "privateStates": {
+                                    "assetPriceTiers_sku_index": {
+                                        "isWhole": true,
+                                        "accessedOnly": true,
+                                        "nullifierRequired": false
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "isWhole": true,
+                                        "nullifierRequired": true
+                                    }
+                                },
+                                "functionName": "checkPO",
+                                "contractName": "TieredPricingShield",
+                                "publicInputs": [],
+                                "returnInputs": []
+                            },
+                            {
+                                "nodeType": "WritePreimage",
+                                "privateStates": {
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "index",
+                                        "mappingName": "purchaseOrder",
+                                        "nullifierRequired": true,
+                                        "isOwned": true
+                                    }
+                                },
+                                "contractName": "TieredPricingShield",
+                                "onChainKeyRegistry": true
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [],
+                        "modifiedStateVariables": []
+                    }
+                }
+            ]
+        },
+        {
+            "nodeType": "File",
+            "fileName": "checkInvoice",
+            "fileExtension": ".mjs",
+            "nodes": [
+                {
+                    "nodeType": "Imports",
+                    "imports": []
+                },
+                {
+                    "nodeType": "FunctionDefinition",
+                    "name": "checkInvoice",
+                    "contractName": "TieredPricingShield",
+                    "parameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "invoice",
+                                "id": 230,
+                                "isSecret": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "[9]",
+                                    "isConstantArray": true
+                                }
+                            },
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "purchaseOrderId",
+                                "id": 232,
+                                "isSecret": true,
+                                "interactsWithSecret": true,
+                                "declarationType": "parameter",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "uint256"
+                                }
+                            }
+                        ],
+                        "modifiedStateVariables": [
+                            {
+                                "nodeType": "VariableDeclaration",
+                                "name": "orderedQuantities_sku",
+                                "id": 0,
+                                "isSecret": true,
+                                "declarationType": "state",
+                                "typeName": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "name": "mapping(uint256 => uint256)"
+                                }
+                            }
+                        ]
+                    },
+                    "body": {
+                        "nodeType": "Block",
+                        "preStatements": [
+                            {
+                                "nodeType": "InitialiseKeys",
+                                "contractName": "TieredPricingShield",
+                                "onChainKeyRegistry": true
+                            },
+                            {
+                                "nodeType": "InitialisePreimage",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "privateStateName": "orderedQuantities_sku",
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "accessedOnly": false,
+                                        "mappingKey": "sku",
+                                        "mappingName": "orderedQuantities",
+                                        "structProperties": null
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "privateStateName": "purchaseOrder_purchaseOrderId_index",
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "accessedOnly": true,
+                                        "mappingKey": "index",
+                                        "mappingName": "purchaseOrder",
+                                        "structProperties": null
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "ReadPreimage",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "increment": "parseInt(invoice_index.quantity.integer, 10)",
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "sku",
+                                        "mappingName": "orderedQuantities",
+                                        "nullifierRequired": true,
+                                        "accessedOnly": false,
+                                        "initialised": true,
+                                        "owner": null,
+                                        "ownerIsSecret": null,
+                                        "ownerIsParam": null
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "index",
+                                        "mappingName": "purchaseOrder",
+                                        "nullifierRequired": false,
+                                        "accessedOnly": true,
+                                        "initialised": true,
+                                        "isOwned": true,
+                                        "ownerIsParam": false
+                                    }
+                                },
+                                "contractName": "TieredPricingShield"
+                            }
+                        ],
+                        "statements": [
+                            {
+                                "nodeType": "VariableDeclarationStatement",
+                                "id": 314,
+                                "interactsWithSecret": true,
+                                "declarations": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "orderedQuantities_sku",
+                                        "id": 30,
+                                        "isSecret": true,
+                                        "isAccessed": true,
+                                        "declarationType": "state",
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "nodeType": "ExpressionStatement",
+                                "id": 244,
+                                "expression": {
+                                    "nodeType": "RequireStatement",
+                                    "condition": [
+                                        {
+                                            "nodeType": "BinaryOperation",
+                                            "leftExpression": {
+                                                "nodeType": "MsgSender"
+                                            },
+                                            "operator": "==",
+                                            "rightExpression": {
+                                                "nodeType": "Identifier",
+                                                "name": "seller",
+                                                "subType": "address"
+                                            }
+                                        }
+                                    ],
+                                    "message": [
+                                        {
+                                            "nodeType": "Literal",
+                                            "value": "Caller is unauthorised, it must be a seller"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "nodeType": "ForStatement",
+                                "condition": {
+                                    "nodeType": "BinaryOperation",
+                                    "leftExpression": {
+                                        "nodeType": "Identifier",
+                                        "name": "index",
+                                        "subType": "uint256"
+                                    },
+                                    "operator": "<",
+                                    "rightExpression": {
+                                        "nodeType": "Literal",
+                                        "value": "9"
+                                    }
+                                },
+                                "initializationExpression": {
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "id": 248,
+                                    "interactsWithSecret": true,
+                                    "declarations": [
+                                        {
+                                            "nodeType": "VariableDeclaration",
+                                            "name": "index",
+                                            "id": 246,
+                                            "isSecret": false,
+                                            "interactsWithSecret": true,
+                                            "declarationType": "localStack",
+                                            "typeName": {
+                                                "nodeType": "ElementaryTypeName",
+                                                "name": "uint256"
+                                            }
+                                        }
+                                    ],
+                                    "initialValue": {
+                                        "nodeType": "Literal",
+                                        "value": "0"
+                                    },
+                                    "isInitializationExpression": true
+                                },
+                                "interactsWithSecret": true,
+                                "loopExpression": {
+                                    "nodeType": "ExpressionStatement",
+                                    "id": 254,
+                                    "expression": {
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "leftHandSide": {
+                                            "nodeType": "Identifier",
+                                            "name": "index",
+                                            "subType": "uint256"
+                                        },
+                                        "rightHandSide": {
+                                            "nodeType": "UnaryOperation",
+                                            "operator": "++",
+                                            "prefix": false,
+                                            "subExpression": {
+                                                "nodeType": "Identifier",
+                                                "name": "index",
+                                                "subType": "uint256"
+                                            }
+                                        }
+                                    },
+                                    "interactsWithSecret": true
+                                },
+                                "body": {
+                                    "nodeType": "Block",
+                                    "preStatements": [],
+                                    "statements": [
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "id": 261,
+                                            "interactsWithSecret": true,
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "sku",
+                                                    "id": 256,
+                                                    "isSecret": false,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "uint256"
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "MemberAccess",
+                                                "name": "invoice_index",
+                                                "memberName": "sku",
+                                                "expression": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "invoice[index]",
+                                                    "subType": "struct TieredPricing.Invoice calldata"
+                                                },
+                                                "subType": "uint256"
+                                            }
+                                        },
+                                        {
+                                            "nodeType": "VariableDeclarationStatement",
+                                            "id": 270,
+                                            "interactsWithSecret": true,
+                                            "declarations": [
+                                                {
+                                                    "nodeType": "VariableDeclaration",
+                                                    "name": "po",
+                                                    "id": 264,
+                                                    "isSecret": true,
+                                                    "interactsWithSecret": true,
+                                                    "declarationType": "localStack",
+                                                    "typeName": {
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "name": "PurchaseOrder",
+                                                        "properties": [
+                                                            {
+                                                                "name": "sku",
+                                                                "type": "uint256"
+                                                            },
+                                                            {
+                                                                "name": "quantity",
+                                                                "type": "uint256"
+                                                            },
+                                                            {
+                                                                "name": "subTotal",
+                                                                "type": "uint256"
+                                                            }
+                                                        ],
+                                                        "isStruct": true
+                                                    }
+                                                }
+                                            ],
+                                            "initialValue": {
+                                                "nodeType": "Identifier",
+                                                "name": "purchaseOrder_purchaseOrderId_index",
+                                                "subType": "struct TieredPricing.PurchaseOrder storage ref"
+                                            }
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 283,
+                                            "expression": {
+                                                "nodeType": "RequireStatement",
+                                                "condition": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "BinaryOperation",
+                                                            "leftExpression": {
+                                                                "nodeType": "MemberAccess",
+                                                                "name": "po",
+                                                                "memberName": "quantity",
+                                                                "expression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "po",
+                                                                    "subType": "struct TieredPricing.PurchaseOrder memory"
+                                                                },
+                                                                "subType": "uint256"
+                                                            },
+                                                            "operator": "!=",
+                                                            "rightExpression": {
+                                                                "nodeType": "Literal",
+                                                                "value": "0"
+                                                            }
+                                                        },
+                                                        "operator": "&&",
+                                                        "rightExpression": {
+                                                            "nodeType": "BinaryOperation",
+                                                            "leftExpression": {
+                                                                "nodeType": "MemberAccess",
+                                                                "name": "po",
+                                                                "memberName": "subTotal",
+                                                                "expression": {
+                                                                    "nodeType": "Identifier",
+                                                                    "name": "po",
+                                                                    "subType": "struct TieredPricing.PurchaseOrder memory"
+                                                                },
+                                                                "subType": "uint256"
+                                                            },
+                                                            "operator": "!=",
+                                                            "rightExpression": {
+                                                                "nodeType": "Literal",
+                                                                "value": "0"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "message": [
+                                                    {
+                                                        "nodeType": "Literal",
+                                                        "value": "Either purchase order Id or sku is incorrect"
+                                                    }
+                                                ]
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 294,
+                                            "expression": {
+                                                "nodeType": "RequireStatement",
+                                                "condition": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "name": "po",
+                                                            "memberName": "quantity",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "po",
+                                                                "subType": "struct TieredPricing.PurchaseOrder memory"
+                                                            },
+                                                            "subType": "uint256"
+                                                        },
+                                                        "operator": "==",
+                                                        "rightExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "name": "invoice_index",
+                                                            "memberName": "quantity",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "invoice[index]",
+                                                                "subType": "struct TieredPricing.Invoice calldata"
+                                                            },
+                                                            "subType": "uint256"
+                                                        }
+                                                    }
+                                                ],
+                                                "message": [
+                                                    {
+                                                        "nodeType": "Literal",
+                                                        "value": "Invoice quantity does not match with PO"
+                                                    }
+                                                ]
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 305,
+                                            "expression": {
+                                                "nodeType": "RequireStatement",
+                                                "condition": [
+                                                    {
+                                                        "nodeType": "BinaryOperation",
+                                                        "leftExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "name": "po",
+                                                            "memberName": "subTotal",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "po",
+                                                                "subType": "struct TieredPricing.PurchaseOrder memory"
+                                                            },
+                                                            "subType": "uint256"
+                                                        },
+                                                        "operator": "==",
+                                                        "rightExpression": {
+                                                            "nodeType": "MemberAccess",
+                                                            "name": "invoice_index",
+                                                            "memberName": "subTotal",
+                                                            "expression": {
+                                                                "nodeType": "Identifier",
+                                                                "name": "invoice[index]",
+                                                                "subType": "struct TieredPricing.Invoice calldata"
+                                                            },
+                                                            "subType": "uint256"
+                                                        }
+                                                    }
+                                                ],
+                                                "message": [
+                                                    {
+                                                        "nodeType": "Literal",
+                                                        "value": "Invoice subTotal does not match with PO"
+                                                    }
+                                                ]
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "ExpressionStatement",
+                                            "id": 314,
+                                            "expression": {
+                                                "nodeType": "Assignment",
+                                                "operator": "+=",
+                                                "leftHandSide": {
+                                                    "nodeType": "Identifier",
+                                                    "name": "orderedQuantities_sku",
+                                                    "subType": "uint256"
+                                                },
+                                                "rightHandSide": {
+                                                    "nodeType": "MemberAccess",
+                                                    "name": "invoice_index",
+                                                    "memberName": "quantity",
+                                                    "expression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "invoice[index]",
+                                                        "subType": "struct TieredPricing.Invoice calldata"
+                                                    },
+                                                    "subType": "uint256"
+                                                }
+                                            },
+                                            "interactsWithSecret": true
+                                        },
+                                        {
+                                            "nodeType": "Assignment",
+                                            "operator": "=",
+                                            "leftHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "orderedQuantities_sku",
+                                                "subType": ""
+                                            },
+                                            "rightHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "orderedQuantities_sku",
+                                                "subType": "generalNumber"
+                                            }
+                                        }
+                                    ],
+                                    "postStatements": []
+                                }
+                            }
+                        ],
+                        "postStatements": [
+                            {
+                                "nodeType": "MembershipWitness",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "privateStateName": "orderedQuantities_sku",
+                                        "accessedOnly": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingName": "orderedQuantities"
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "privateStateName": "purchaseOrder_purchaseOrderId_index",
+                                        "accessedOnly": true,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingName": "purchaseOrder"
+                                    }
+                                },
+                                "contractName": "TieredPricingShield"
+                            },
+                            {
+                                "nodeType": "CalculateNullifier",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "accessedOnly": false,
+                                        "isSharedSecret": false,
+                                        "isWhole": true
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "accessedOnly": true,
+                                        "isSharedSecret": false,
+                                        "isWhole": true
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "CalculateCommitment",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "privateStateName": "orderedQuantities_sku",
+                                        "newCommitmentValue": null,
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "nullifierRequired": true,
+                                        "structProperties": null,
+                                        "owner": null,
+                                        "ownerIsSecret": null
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "GenerateProof",
+                                "circuitName": "checkInvoice",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "privateStateName": "orderedQuantities_sku",
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "accessedOnly": false,
+                                        "isSharedSecret": false,
+                                        "nullifierRequired": true,
+                                        "increment": [
+                                            {
+                                                "name": "invoice_index.quantity",
+                                                "precedingOperator": "+"
+                                            }
+                                        ],
+                                        "structProperties": null,
+                                        "isMapping": true,
+                                        "isWhole": true,
+                                        "originalMappingKeyName": [
+                                            "sku"
+                                        ],
+                                        "initialisationRequired": true,
+                                        "owner": null,
+                                        "ownerIsSecret": null,
+                                        "localMappingKey": true
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "privateStateName": "purchaseOrder_purchaseOrderId_index",
+                                        "stateVarId": [
+                                            50,
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "accessedOnly": true,
+                                        "isSharedSecret": false,
+                                        "nullifierRequired": false,
+                                        "structProperties": null,
+                                        "isMapping": true,
+                                        "isWhole": true,
+                                        "isOwned": true,
+                                        "originalMappingKeyName": [
+                                            "purchaseOrderId",
+                                            "index"
+                                        ],
+                                        "localMappingKey": true
+                                    }
+                                },
+                                "parameters": [
+                                    "orderedQuantities_sku",
+                                    "invoice.all",
+                                    "purchaseOrderId"
+                                ]
+                            },
+                            {
+                                "nodeType": "EncryptBackupPreimage",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "privateStateName": "orderedQuantities_sku",
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "mappingKey": "sku",
+                                        "mappingName": "orderedQuantities",
+                                        "isWhole": true,
+                                        "nullifierRequired": true,
+                                        "structProperties": null,
+                                        "owner": null,
+                                        "ownerIsSecret": null
+                                    }
+                                }
+                            },
+                            {
+                                "nodeType": "SendTransaction",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "isWhole": true,
+                                        "accessedOnly": false,
+                                        "nullifierRequired": true
+                                    },
+                                    "purchaseOrder_purchaseOrderId_index": {
+                                        "isWhole": true,
+                                        "accessedOnly": true,
+                                        "nullifierRequired": false
+                                    }
+                                },
+                                "functionName": "checkInvoice",
+                                "contractName": "TieredPricingShield",
+                                "publicInputs": [],
+                                "returnInputs": []
+                            },
+                            {
+                                "nodeType": "WritePreimage",
+                                "privateStates": {
+                                    "orderedQuantities_sku": {
+                                        "stateVarId": [
+                                            30,
+                                            "sku"
+                                        ],
+                                        "isSharedSecret": false,
+                                        "isWhole": true,
+                                        "structProperties": null,
+                                        "mappingKey": "sku",
+                                        "mappingName": "orderedQuantities",
+                                        "nullifierRequired": true,
+                                        "owner": null,
+                                        "ownerIsSecret": null
+                                    }
+                                },
+                                "contractName": "TieredPricingShield",
+                                "onChainKeyRegistry": true
+                            }
+                        ]
+                    },
+                    "returnParameters": {
+                        "nodeType": "ParameterList",
+                        "parameters": [],
+                        "modifiedStateVariables": []
+                    }
+                }
+            ]
+        }
+    ]
+}

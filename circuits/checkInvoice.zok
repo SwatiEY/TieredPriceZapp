@@ -1,0 +1,223 @@
+from "ecc/babyjubjubParams" import main as curveParams
+from "ecc/edwardsScalarMult" import main as scalarMult
+from "ecc/edwardsCompress" import main as edwardsCompress
+from "utils/pack/bool/pack256.zok" import main as bool_256_to_field
+from "utils/pack/bool/nonStrictUnpack256.zok" import main as field_to_bool_256
+from "hashes/poseidon/poseidon.zok" import main as poseidon
+from "./common/merkle-tree/sparse-merkle-tree/checkproof.zok" import main as checkproof
+from "./common/merkle-tree/sparse-merkle-tree/checkproof.zok" import checkUpdatedPath as checkUpdatedPath
+from "./common/merkle-tree/mimc/altbn254/verify-membership/height32.zok" import main as checkRoot
+
+struct PurchaseOrder {
+        field sku
+field quantity
+field subTotal
+      }
+
+struct Invoice {
+        field sku
+field quantity
+field subTotal
+      }
+
+def main(\
+	private Invoice[9] invoice,\
+	private field purchaseOrderId,\
+	private field orderedQuantities_sku_oldCommitment_owner_secretKey,\
+	public field[9] orderedQuantities_sku_oldCommitment_nullifier,\
+	private  field[9] orderedQuantities_sku_oldCommitment_value,\
+	private field[9] orderedQuantities_sku_oldCommitment_salt,\
+	private bool[9] orderedQuantities_sku_oldCommitment_isDummy,\
+	public field commitmentRoot,\
+	private field[9] orderedQuantities_sku_oldCommitment_membershipWitness_index,\
+	private field[9][32] orderedQuantities_sku_oldCommitment_membershipWitness_siblingPath,\
+	private field orderedQuantities_sku_newCommitment_owner_publicKey,\
+	private field[9] orderedQuantities_sku_newCommitment_salt,\
+	public field[9] orderedQuantities_sku_newCommitment_commitment,\
+	private field purchaseOrder_purchaseOrderId_oldCommitment_owner_secretKey,\
+	public field purchaseOrder_purchaseOrderId_oldCommitment_nullifier,\
+	private  PurchaseOrder[9] purchaseOrder_purchaseOrderId_oldCommitment_value,\
+	private field purchaseOrder_purchaseOrderId_oldCommitment_salt,\
+	private field purchaseOrder_purchaseOrderId_oldCommitment_membershipWitness_index,\
+	private field[32] purchaseOrder_purchaseOrderId_oldCommitment_membershipWitness_siblingPath\
+) -> (bool):
+
+        
+        // We need to hard-code the mappingId's of mappings into the circuit:
+        field orderedQuantities_mappingId = 30
+
+
+        // orderedQuantities_sku_oldCommitment - PoKoSK:
+        // The correctness of this secret key will be constrained within the oldCommitment existence check.
+
+        field[2] orderedQuantities_sku_oldCommitment_owner_publicKey_point = scalarMult(field_to_bool_256(orderedQuantities_sku_oldCommitment_owner_secretKey), [curveParams().Gu, curveParams().Gv], curveParams())
+
+        bool orderedQuantities_sku_oldCommitment_owner_publicKey_sign = edwardsCompress(orderedQuantities_sku_oldCommitment_owner_publicKey_point)[0]
+
+        bool[254] orderedQuantities_sku_oldCommitment_yBits = field_to_bool_256(orderedQuantities_sku_oldCommitment_owner_publicKey_point[1])[2..256]
+        orderedQuantities_sku_oldCommitment_yBits[0] = orderedQuantities_sku_oldCommitment_owner_publicKey_sign
+
+        field orderedQuantities_sku_oldCommitment_owner_publicKey = bool_256_to_field([false, false, ...orderedQuantities_sku_oldCommitment_yBits])
+
+
+
+        // We need to hard-code the mappingId's of mappings into the circuit:
+        field purchaseOrder_mappingId = 50
+
+
+        PurchaseOrder[9] purchaseOrder_purchaseOrderId = purchaseOrder_purchaseOrderId_oldCommitment_value
+
+for u32 index in 0..9 do
+            		field sku = invoice[index].sku
+                field orderedQuantities_sku = orderedQuantities_sku_oldCommitment_value[index]
+                field orderedQuantities_sku_stateVarId_field = poseidon([orderedQuantities_mappingId, sku])
+
+                // Nullify orderedQuantities_sku:
+
+        field orderedQuantities_sku_oldCommitment_nullifier_check_field = if orderedQuantities_sku_oldCommitment_salt[index] != 0 then poseidon([\
+          orderedQuantities_sku_stateVarId_field,\
+          orderedQuantities_sku_oldCommitment_owner_secretKey,\
+          orderedQuantities_sku_oldCommitment_salt[index]\
+        ]) else orderedQuantities_sku_oldCommitment_nullifier[index] fi
+
+        assert(\
+        field_to_bool_256(orderedQuantities_sku_oldCommitment_nullifier[index])[8..256] == field_to_bool_256(orderedQuantities_sku_oldCommitment_nullifier_check_field)[8..256]\
+        )
+        // orderedQuantities_sku_oldCommitment_nullifier : non-existence check
+        
+        
+
+
+
+        // prepare secret state 'orderedQuantities_sku' for commitment
+
+          field orderedQuantities_sku_oldCommitment_value_field = orderedQuantities_sku_oldCommitment_value[index]
+          
+        // orderedQuantities_sku_oldCommitment_commitment: preimage check
+
+
+        field orderedQuantities_sku_oldCommitment_commitment_field = poseidon([\
+          orderedQuantities_sku_stateVarId_field,\
+          orderedQuantities_sku_oldCommitment_value_field,\
+          orderedQuantities_sku_oldCommitment_owner_publicKey,\
+          orderedQuantities_sku_oldCommitment_salt[index]        ])
+
+
+        // orderedQuantities_sku_oldCommitment_commitment: existence check
+
+
+        field orderedQuantities_sku_commitmentRoot_check = if orderedQuantities_sku_oldCommitment_salt[index] != 0 then checkRoot(\
+          orderedQuantities_sku_oldCommitment_membershipWitness_siblingPath[index],\
+          orderedQuantities_sku_oldCommitment_commitment_field,\
+          orderedQuantities_sku_oldCommitment_membershipWitness_index[index]\
+        ) else commitmentRoot fi
+
+
+        // Note: Don't bother actually asserting existence, if the oldCommitment is a dummy:
+        orderedQuantities_sku_commitmentRoot_check = if orderedQuantities_sku_oldCommitment_isDummy[index] == true then commitmentRoot else orderedQuantities_sku_commitmentRoot_check fi
+
+
+        assert(\
+          field_to_bool_256(commitmentRoot)[8..256] == field_to_bool_256(orderedQuantities_sku_commitmentRoot_check)[8..256]\
+        )
+
+
+		PurchaseOrder po = purchaseOrder_purchaseOrderId[index]
+
+
+        assert(po.quantity == invoice[index].quantity)
+
+
+        assert(po.subTotal == invoice[index].subTotal)
+
+orderedQuantities_sku = orderedQuantities_sku + invoice[index].quantity
+
+// prepare secret state 'orderedQuantities_sku' for commitment
+
+        field orderedQuantities_sku_newCommitment_value_field = orderedQuantities_sku
+
+        // orderedQuantities_sku_newCommitment_commitment - preimage check
+
+        field orderedQuantities_sku_newCommitment_commitment_check_field = if orderedQuantities_sku_newCommitment_salt[index] != 0 then poseidon([\
+          orderedQuantities_sku_stateVarId_field,\
+          orderedQuantities_sku_newCommitment_value_field,\
+          orderedQuantities_sku_newCommitment_owner_publicKey,\
+          orderedQuantities_sku_newCommitment_salt[index]\
+        ]) else orderedQuantities_sku_newCommitment_commitment[index] fi
+
+        assert(\
+          field_to_bool_256(orderedQuantities_sku_newCommitment_commitment[index])[8..256] == field_to_bool_256(orderedQuantities_sku_newCommitment_commitment_check_field)[8..256]\
+        )
+            endfor
+
+        field purchaseOrder_purchaseOrderId_stateVarId_field = poseidon([purchaseOrder_mappingId, purchaseOrderId])
+
+
+        // purchaseOrder_purchaseOrderId_index_oldCommitment - PoKoSK:
+        // The correctness of this secret key will be constrained within the oldCommitment existence check.
+
+        field[2] purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey_point = scalarMult(field_to_bool_256(purchaseOrder_purchaseOrderId_oldCommitment_owner_secretKey), [curveParams().Gu, curveParams().Gv], curveParams())
+
+        bool purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey_sign = edwardsCompress(purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey_point)[0]
+
+        bool[254] purchaseOrder_purchaseOrderId_oldCommitment_yBits = field_to_bool_256(purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey_point[1])[2..256]
+        purchaseOrder_purchaseOrderId_oldCommitment_yBits[0] = purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey_sign
+
+        field purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey = bool_256_to_field([false, false, ...purchaseOrder_purchaseOrderId_oldCommitment_yBits])
+
+
+        // Nullify purchaseOrder_purchaseOrderId_index:
+
+        field purchaseOrder_purchaseOrderId_oldCommitment_nullifier_check_field = poseidon([\
+          purchaseOrder_purchaseOrderId_stateVarId_field,\
+          purchaseOrder_purchaseOrderId_oldCommitment_owner_secretKey,\
+          purchaseOrder_purchaseOrderId_oldCommitment_salt\
+        ])
+
+        assert(\
+        field_to_bool_256(purchaseOrder_purchaseOrderId_oldCommitment_nullifier)[8..256] == field_to_bool_256(purchaseOrder_purchaseOrderId_oldCommitment_nullifier_check_field)[8..256]\
+        )
+        // purchaseOrder_purchaseOrderId_index_oldCommitment_nullifier : non-existence check
+        
+        
+
+
+
+        // prepare secret state 'purchaseOrder_purchaseOrderId_index' for commitment
+
+          field purchaseOrder_purchaseOrderId_oldCommitment_value_field = poseidon([purchaseOrder_purchaseOrderId_oldCommitment_value[0].sku, purchaseOrder_purchaseOrderId_oldCommitment_value[0].quantity, purchaseOrder_purchaseOrderId_oldCommitment_value[0].subTotal])
+
+          for u32 i in 1..9 do
+        // Create the innerValue using Poseidon hash
+        field innerValue = if (purchaseOrder_purchaseOrderId_oldCommitment_value[i].sku != 0 && purchaseOrder_purchaseOrderId_oldCommitment_value[i].quantity != 0 && purchaseOrder_purchaseOrderId_oldCommitment_value[i].subTotal != 0) then poseidon([purchaseOrder_purchaseOrderId_oldCommitment_value[i].sku, purchaseOrder_purchaseOrderId_oldCommitment_value[i].quantity, purchaseOrder_purchaseOrderId_oldCommitment_value[i].subTotal]) else 0 fi
+
+        purchaseOrder_purchaseOrderId_oldCommitment_value_field = if innerValue != 0 then poseidon([purchaseOrder_purchaseOrderId_oldCommitment_value_field, innerValue]) else purchaseOrder_purchaseOrderId_oldCommitment_value_field fi
+    
+        endfor
+          
+          
+        // purchaseOrder_purchaseOrderId_index_oldCommitment_commitment: preimage check
+
+
+        field purchaseOrder_purchaseOrderId_oldCommitment_commitment_field = poseidon([\
+          purchaseOrder_purchaseOrderId_stateVarId_field,\
+          purchaseOrder_purchaseOrderId_oldCommitment_value_field,\
+          purchaseOrder_purchaseOrderId_oldCommitment_owner_publicKey,\
+          purchaseOrder_purchaseOrderId_oldCommitment_salt        ])
+
+
+        // purchaseOrder_purchaseOrderId_index_oldCommitment_commitment: existence check
+
+
+        field purchaseOrder_purchaseOrderId_commitmentRoot_check = checkRoot(\
+          purchaseOrder_purchaseOrderId_oldCommitment_membershipWitness_siblingPath,\
+          purchaseOrder_purchaseOrderId_oldCommitment_commitment_field,\
+          purchaseOrder_purchaseOrderId_oldCommitment_membershipWitness_index\
+        )
+
+
+        assert(\
+          field_to_bool_256(commitmentRoot)[8..256] == field_to_bool_256(purchaseOrder_purchaseOrderId_commitmentRoot_check)[8..256]\
+        )
+
+         return true

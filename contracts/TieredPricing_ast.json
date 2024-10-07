@@ -1,0 +1,912 @@
+{
+    "nodeType": "Folder",
+    "files": [
+        {
+            "nodeType": "SourceUnit",
+            "name": "TieredPricing",
+            "license": "GPL-3.0",
+            "nodes": [
+                {
+                    "nodeType": "PragmaDirective",
+                    "literals": [
+                        "solidity",
+                        "^",
+                        "0.8",
+                        ".0"
+                    ]
+                },
+                {
+                    "nodeType": "ContractBoilerplate",
+                    "bpSection": "importStatements",
+                    "bpCategory": "contract",
+                    "newCommitmentsRequired": true
+                },
+                {
+                    "nodeType": "PragmaDirective",
+                    "literals": [
+                        "experimental",
+                        "ABIEncoderV2"
+                    ]
+                },
+                {
+                    "nodeType": "ContractDefinition",
+                    "name": "TieredPricing",
+                    "baseContracts": [
+                        {
+                            "nodeType": "InheritanceSpecifier",
+                            "baseName": {
+                                "name": "MerkleTree"
+                            }
+                        }
+                    ],
+                    "nodes": [
+                        {
+                            "nodeType": "ContractBoilerplate",
+                            "bpSection": "stateVariableDeclarations",
+                            "bpCategory": "contract",
+                            "functionNames": [
+                                "addPriceTierItem",
+                                "checkPO",
+                                "checkInvoice"
+                            ],
+                            "nullifiersRequired": true,
+                            "oldCommitmentAccessRequired": true,
+                            "newCommitmentsRequired": true,
+                            "containsAccessedOnlyState": true
+                        },
+                        {
+                            "nodeType": "ContractBoilerplate",
+                            "bpSection": "registerZKPPublicKey",
+                            "bpCategory": "contract"
+                        },
+                        {
+                            "nodeType": "ContractBoilerplate",
+                            "bpSection": "verify",
+                            "bpCategory": "contract",
+                            "nullifiersRequired": true,
+                            "oldCommitmentAccessRequired": true,
+                            "newCommitmentsRequired": true,
+                            "containsAccessedOnlyState": true,
+                            "constructorContainsSecret": true,
+                            "circuitParams": {
+                                "addPriceTierItem": {
+                                    "parameters": [
+                                        "nullifier",
+                                        "oldCommitmentExistence",
+                                        "newCommitment"
+                                    ]
+                                },
+                                "checkPO": {
+                                    "parameters": [
+                                        "checkNullifier",
+                                        "oldCommitmentExistence",
+                                        "nullifier",
+                                        "newCommitment"
+                                    ]
+                                },
+                                "checkInvoice": {
+                                    "parameters": [
+                                        "nullifier",
+                                        "oldCommitmentExistence",
+                                        "newCommitment",
+                                        "checkNullifier"
+                                    ]
+                                }
+                            },
+                            "isjoinSplitCommitmentsFunction": []
+                        },
+                        {
+                            "nodeType": "VariableDeclaration",
+                            "name": "contractManagerOwner",
+                            "visibility": "public",
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                                "typeString": "address"
+                            },
+                            "typeName": {
+                                "nodeType": "ElementaryTypeName",
+                                "typeDescriptions": {
+                                    "typeString": "address"
+                                }
+                            },
+                            "declarationType": "state"
+                        },
+                        {
+                            "nodeType": "StructDefinition",
+                            "name": "Invoice",
+                            "members": [
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "sku",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                },
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "quantity",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                },
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "subTotal",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                }
+                            ]
+                        },
+                        {
+                            "nodeType": "StructDefinition",
+                            "name": "PriceTierItem",
+                            "members": [
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "minQuantity",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                },
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "price",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                }
+                            ]
+                        },
+                        {
+                            "nodeType": "StructDefinition",
+                            "name": "Buyer",
+                            "members": [
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "buyer",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                }
+                            ]
+                        },
+                        {
+                            "nodeType": "VariableDeclaration",
+                            "name": "assetPriceTiers",
+                            "visibility": "private",
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                                "typeString": "mapping(uint256 => struct TieredPricing.PriceTierItem[9])"
+                            },
+                            "typeName": {
+                                "nodeType": "Mapping",
+                                "keyType": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "valueType": {
+                                    "nodeType": "ElementaryTypeNameExpression",
+                                    "typeName": {}
+                                },
+                                "typeDescriptions": {}
+                            },
+                            "isSecret": true,
+                            "interactsWithSecret": true,
+                            "declarationType": "state"
+                        },
+                        {
+                            "nodeType": "VariableDeclaration",
+                            "name": "orderedQuantities",
+                            "visibility": "private",
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                                "typeString": "mapping(uint256 => uint256)"
+                            },
+                            "typeName": {
+                                "nodeType": "Mapping",
+                                "keyType": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "valueType": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "typeDescriptions": {}
+                            },
+                            "isSecret": true,
+                            "interactsWithSecret": true,
+                            "declarationType": "state"
+                        },
+                        {
+                            "nodeType": "VariableDeclaration",
+                            "name": "buyers",
+                            "visibility": "private",
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                                "typeString": "mapping(address => address)"
+                            },
+                            "typeName": {
+                                "nodeType": "Mapping",
+                                "keyType": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "typeDescriptions": {
+                                        "typeString": "address"
+                                    }
+                                },
+                                "valueType": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "typeDescriptions": {
+                                        "typeString": "address"
+                                    }
+                                },
+                                "typeDescriptions": {}
+                            },
+                            "declarationType": "state"
+                        },
+                        {
+                            "nodeType": "VariableDeclaration",
+                            "name": "seller",
+                            "visibility": "public",
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                                "typeString": "address"
+                            },
+                            "typeName": {
+                                "nodeType": "ElementaryTypeName",
+                                "typeDescriptions": {
+                                    "typeString": "address"
+                                }
+                            },
+                            "declarationType": "state"
+                        },
+                        {
+                            "nodeType": "StructDefinition",
+                            "name": "PurchaseOrder",
+                            "members": [
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "sku",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                },
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "quantity",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                },
+                                {
+                                    "nodeType": "VariableDeclaration",
+                                    "name": "subTotal",
+                                    "visibility": "internal",
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "nodeType": "ElementaryTypeName",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "interactsWithSecret": false,
+                                    "declarationType": ""
+                                }
+                            ]
+                        },
+                        {
+                            "nodeType": "VariableDeclaration",
+                            "name": "purchaseOrder",
+                            "visibility": "private",
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                                "typeString": "mapping(uint256 => struct TieredPricing.PurchaseOrder[9])"
+                            },
+                            "typeName": {
+                                "nodeType": "Mapping",
+                                "keyType": {
+                                    "nodeType": "ElementaryTypeName",
+                                    "typeDescriptions": {
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "valueType": {
+                                    "nodeType": "ElementaryTypeNameExpression",
+                                    "typeName": {}
+                                },
+                                "typeDescriptions": {}
+                            },
+                            "isSecret": true,
+                            "interactsWithSecret": true,
+                            "declarationType": "state"
+                        },
+                        {
+                            "nodeType": "FunctionDefinition",
+                            "name": "",
+                            "visibility": "",
+                            "isConstructor": true,
+                            "kind": "constructor",
+                            "stateMutability": "",
+                            "msgSigRequired": false,
+                            "body": {
+                                "nodeType": "Block",
+                                "preStatements": [
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "preStatements",
+                                        "bpCategory": "cnstrctr"
+                                    }
+                                ],
+                                "statements": [
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {
+                                            "nodeType": "Assignment",
+                                            "operator": "=",
+                                            "leftHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "contractManagerOwner"
+                                            },
+                                            "rightHandSide": {
+                                                "nodeType": "MsgSender"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "postStatements": []
+                            },
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "parameters",
+                                        "bpCategory": "cnstrctr"
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": []
+                            }
+                        },
+                        {
+                            "nodeType": "FunctionDefinition",
+                            "name": "addPriceTierItem",
+                            "visibility": "public",
+                            "isConstructor": false,
+                            "kind": "function",
+                            "stateMutability": "",
+                            "msgSigRequired": false,
+                            "body": {
+                                "nodeType": "Block",
+                                "preStatements": [],
+                                "statements": [
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {
+                                            "nodeType": "FunctionCall",
+                                            "expression": {
+                                                "nodeType": "Identifier",
+                                                "name": "require"
+                                            },
+                                            "arguments": [
+                                                {
+                                                    "nodeType": "BinaryOperation",
+                                                    "leftExpression": {
+                                                        "nodeType": "MsgSender"
+                                                    },
+                                                    "operator": "==",
+                                                    "rightExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "seller"
+                                                    }
+                                                },
+                                                {
+                                                    "nodeType": "Literal",
+                                                    "value": "Caller is unauthorised, it must be a seller",
+                                                    "kind": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {}
+                                    }
+                                ],
+                                "postStatements": [
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "postStatements",
+                                        "bpCategory": "customFunction",
+                                        "customInputs": [
+                                            {
+                                                "name": 1,
+                                                "type": "uint256",
+                                                "dummy": true,
+                                                "inCircuit": true
+                                            }
+                                        ],
+                                        "functionName": "addPriceTierItem",
+                                        "nullifiersRequired": true,
+                                        "oldCommitmentAccessRequired": true,
+                                        "newCommitmentsRequired": true,
+                                        "isConstructor": false
+                                    }
+                                ]
+                            },
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "sku",
+                                        "visibility": "internal",
+                                        "storageLocation": "default",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "typeDescriptions": {
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter"
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "priceTierItem",
+                                        "visibility": "internal",
+                                        "storageLocation": "calldata",
+                                        "typeDescriptions": {
+                                            "typeString": "struct TieredPricing.PriceTierItem[9]"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeNameExpression",
+                                            "typeName": {}
+                                        },
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter"
+                                    },
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "parameters",
+                                        "bpCategory": "customFunction",
+                                        "nullifiersRequired": true,
+                                        "oldCommitmentAccessRequired": true,
+                                        "newCommitmentsRequired": true,
+                                        "isConstructor": false
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": []
+                            }
+                        },
+                        {
+                            "nodeType": "FunctionDefinition",
+                            "name": "addSeller",
+                            "visibility": "public",
+                            "isConstructor": false,
+                            "kind": "function",
+                            "stateMutability": "",
+                            "msgSigRequired": false,
+                            "body": {
+                                "nodeType": "Block",
+                                "preStatements": [],
+                                "statements": [
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {
+                                            "nodeType": "FunctionCall",
+                                            "expression": {
+                                                "nodeType": "Identifier",
+                                                "name": "require"
+                                            },
+                                            "arguments": [
+                                                {
+                                                    "nodeType": "BinaryOperation",
+                                                    "leftExpression": {
+                                                        "nodeType": "MsgSender"
+                                                    },
+                                                    "operator": "==",
+                                                    "rightExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "seller"
+                                                    }
+                                                },
+                                                {
+                                                    "nodeType": "Literal",
+                                                    "value": "Caller is unauthorised, it must be a seller",
+                                                    "kind": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {
+                                            "nodeType": "Assignment",
+                                            "operator": "=",
+                                            "leftHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "seller"
+                                            },
+                                            "rightHandSide": {
+                                                "nodeType": "Identifier",
+                                                "name": "_seller"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "postStatements": []
+                            },
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "_seller",
+                                        "visibility": "internal",
+                                        "storageLocation": "default",
+                                        "typeDescriptions": {
+                                            "typeString": "address"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "typeDescriptions": {
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "declarationType": "parameter"
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": []
+                            }
+                        },
+                        {
+                            "nodeType": "FunctionDefinition",
+                            "name": "checkPO",
+                            "visibility": "public",
+                            "isConstructor": false,
+                            "kind": "function",
+                            "stateMutability": "",
+                            "msgSigRequired": false,
+                            "body": {
+                                "nodeType": "Block",
+                                "preStatements": [],
+                                "statements": [
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {
+                                            "nodeType": "FunctionCall",
+                                            "expression": {
+                                                "nodeType": "Identifier",
+                                                "name": "require"
+                                            },
+                                            "arguments": [
+                                                {
+                                                    "nodeType": "BinaryOperation",
+                                                    "leftExpression": {
+                                                        "nodeType": "IndexAccess",
+                                                        "baseExpression": {
+                                                            "nodeType": "Identifier",
+                                                            "name": "buyers"
+                                                        },
+                                                        "indexExpression": {
+                                                            "nodeType": "MsgSender"
+                                                        }
+                                                    },
+                                                    "operator": "==",
+                                                    "rightExpression": {
+                                                        "nodeType": "MsgSender"
+                                                    }
+                                                },
+                                                {
+                                                    "nodeType": "Literal",
+                                                    "value": "Caller is unauthorised, it must be a buyer",
+                                                    "kind": "string"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "postStatements": [
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "postStatements",
+                                        "bpCategory": "customFunction",
+                                        "customInputs": [
+                                            {
+                                                "name": 1,
+                                                "type": "uint256",
+                                                "dummy": true,
+                                                "inCircuit": true
+                                            }
+                                        ],
+                                        "functionName": "checkPO",
+                                        "nullifiersRequired": true,
+                                        "oldCommitmentAccessRequired": true,
+                                        "newCommitmentsRequired": true,
+                                        "containsAccessedOnlyState": true,
+                                        "isConstructor": false
+                                    }
+                                ]
+                            },
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "order",
+                                        "visibility": "internal",
+                                        "storageLocation": "calldata",
+                                        "typeDescriptions": {
+                                            "typeString": "struct TieredPricing.PurchaseOrder[9]"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeNameExpression",
+                                            "typeName": {}
+                                        },
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter"
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrderId",
+                                        "visibility": "internal",
+                                        "storageLocation": "default",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "typeDescriptions": {
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter"
+                                    },
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "parameters",
+                                        "bpCategory": "customFunction",
+                                        "nullifiersRequired": true,
+                                        "oldCommitmentAccessRequired": true,
+                                        "newCommitmentsRequired": true,
+                                        "containsAccessedOnlyState": true,
+                                        "isConstructor": false
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": []
+                            }
+                        },
+                        {
+                            "nodeType": "FunctionDefinition",
+                            "name": "checkInvoice",
+                            "visibility": "public",
+                            "isConstructor": false,
+                            "kind": "function",
+                            "stateMutability": "",
+                            "msgSigRequired": false,
+                            "body": {
+                                "nodeType": "Block",
+                                "preStatements": [],
+                                "statements": [
+                                    {
+                                        "nodeType": "ExpressionStatement",
+                                        "expression": {
+                                            "nodeType": "FunctionCall",
+                                            "expression": {
+                                                "nodeType": "Identifier",
+                                                "name": "require"
+                                            },
+                                            "arguments": [
+                                                {
+                                                    "nodeType": "BinaryOperation",
+                                                    "leftExpression": {
+                                                        "nodeType": "MsgSender"
+                                                    },
+                                                    "operator": "==",
+                                                    "rightExpression": {
+                                                        "nodeType": "Identifier",
+                                                        "name": "seller"
+                                                    }
+                                                },
+                                                {
+                                                    "nodeType": "Literal",
+                                                    "value": "Caller is unauthorised, it must be a seller",
+                                                    "kind": "string"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "postStatements": [
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "postStatements",
+                                        "bpCategory": "customFunction",
+                                        "customInputs": [
+                                            {
+                                                "name": 1,
+                                                "type": "uint256",
+                                                "dummy": true,
+                                                "inCircuit": true
+                                            }
+                                        ],
+                                        "functionName": "checkInvoice",
+                                        "nullifiersRequired": true,
+                                        "oldCommitmentAccessRequired": true,
+                                        "newCommitmentsRequired": true,
+                                        "containsAccessedOnlyState": true,
+                                        "isConstructor": false
+                                    }
+                                ]
+                            },
+                            "parameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": [
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "invoice",
+                                        "visibility": "internal",
+                                        "storageLocation": "calldata",
+                                        "typeDescriptions": {
+                                            "typeString": "struct TieredPricing.Invoice[9]"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeNameExpression",
+                                            "typeName": {}
+                                        },
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter"
+                                    },
+                                    {
+                                        "nodeType": "VariableDeclaration",
+                                        "name": "purchaseOrderId",
+                                        "visibility": "internal",
+                                        "storageLocation": "default",
+                                        "typeDescriptions": {
+                                            "typeString": "uint256"
+                                        },
+                                        "typeName": {
+                                            "nodeType": "ElementaryTypeName",
+                                            "typeDescriptions": {
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "isSecret": true,
+                                        "interactsWithSecret": true,
+                                        "declarationType": "parameter"
+                                    },
+                                    {
+                                        "nodeType": "FunctionBoilerplate",
+                                        "bpSection": "parameters",
+                                        "bpCategory": "customFunction",
+                                        "nullifiersRequired": true,
+                                        "oldCommitmentAccessRequired": true,
+                                        "newCommitmentsRequired": true,
+                                        "containsAccessedOnlyState": true,
+                                        "isConstructor": false
+                                    }
+                                ]
+                            },
+                            "returnParameters": {
+                                "nodeType": "ParameterList",
+                                "parameters": []
+                            }
+                        }
+                    ],
+                    "isShieldContract": true
+                }
+            ]
+        }
+    ]
+}

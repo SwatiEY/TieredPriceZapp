@@ -1,0 +1,140 @@
+from "ecc/babyjubjubParams" import main as curveParams
+from "ecc/edwardsScalarMult" import main as scalarMult
+from "ecc/edwardsCompress" import main as edwardsCompress
+from "utils/pack/bool/pack256.zok" import main as bool_256_to_field
+from "utils/pack/bool/nonStrictUnpack256.zok" import main as field_to_bool_256
+from "hashes/poseidon/poseidon.zok" import main as poseidon
+from "./common/merkle-tree/sparse-merkle-tree/checkproof.zok" import main as checkproof
+from "./common/merkle-tree/sparse-merkle-tree/checkproof.zok" import checkUpdatedPath as checkUpdatedPath
+from "./common/merkle-tree/mimc/altbn254/verify-membership/height32.zok" import main as checkRoot
+
+struct PriceTierItem {
+        field minQuantity
+field price
+      }
+
+def main(\
+	private field sku,\
+	private PriceTierItem[9] priceTierItem,\
+	private field assetPriceTiers_sku_oldCommitment_owner_secretKey,\
+	public field assetPriceTiers_sku_oldCommitment_nullifier,\
+	private  PriceTierItem[9] assetPriceTiers_sku_oldCommitment_value,\
+	private field assetPriceTiers_sku_oldCommitment_salt,\
+	private bool assetPriceTiers_sku_oldCommitment_isDummy,\
+	public field commitmentRoot,\
+	private field assetPriceTiers_sku_oldCommitment_membershipWitness_index,\
+	private field[32] assetPriceTiers_sku_oldCommitment_membershipWitness_siblingPath,\
+	private field assetPriceTiers_sku_newCommitment_owner_publicKey,\
+	private field assetPriceTiers_sku_newCommitment_salt,\
+	public field assetPriceTiers_sku_newCommitment_commitment\
+) -> (bool):
+
+        
+        // We need to hard-code the mappingId's of mappings into the circuit:
+        field assetPriceTiers_mappingId = 26
+
+
+        PriceTierItem[9] assetPriceTiers_sku = assetPriceTiers_sku_oldCommitment_value
+
+assetPriceTiers_sku = priceTierItem
+
+
+        field assetPriceTiers_sku_stateVarId_field = poseidon([assetPriceTiers_mappingId, sku])
+
+
+        // assetPriceTiers_sku_oldCommitment - PoKoSK:
+        // The correctness of this secret key will be constrained within the oldCommitment existence check.
+
+        field[2] assetPriceTiers_sku_oldCommitment_owner_publicKey_point = scalarMult(field_to_bool_256(assetPriceTiers_sku_oldCommitment_owner_secretKey), [curveParams().Gu, curveParams().Gv], curveParams())
+
+        bool assetPriceTiers_sku_oldCommitment_owner_publicKey_sign = edwardsCompress(assetPriceTiers_sku_oldCommitment_owner_publicKey_point)[0]
+
+        bool[254] assetPriceTiers_sku_oldCommitment_yBits = field_to_bool_256(assetPriceTiers_sku_oldCommitment_owner_publicKey_point[1])[2..256]
+        assetPriceTiers_sku_oldCommitment_yBits[0] = assetPriceTiers_sku_oldCommitment_owner_publicKey_sign
+
+        field assetPriceTiers_sku_oldCommitment_owner_publicKey = bool_256_to_field([false, false, ...assetPriceTiers_sku_oldCommitment_yBits])
+
+
+        // Nullify assetPriceTiers_sku:
+
+        field assetPriceTiers_sku_oldCommitment_nullifier_check_field = poseidon([\
+          assetPriceTiers_sku_stateVarId_field,\
+          assetPriceTiers_sku_oldCommitment_owner_secretKey,\
+          assetPriceTiers_sku_oldCommitment_salt\
+        ])
+
+        assert(\
+        field_to_bool_256(assetPriceTiers_sku_oldCommitment_nullifier)[8..256] == field_to_bool_256(assetPriceTiers_sku_oldCommitment_nullifier_check_field)[8..256]\
+        )
+        // assetPriceTiers_sku_oldCommitment_nullifier : non-existence check
+        
+        
+
+
+
+        // prepare secret state 'assetPriceTiers_sku' for commitment
+
+          field assetPriceTiers_sku_oldCommitment_value_field = poseidon([assetPriceTiers_sku_oldCommitment_value[0].minQuantity, assetPriceTiers_sku_oldCommitment_value[0].price])
+
+         for u32 i in 1..9 do
+        // Create the innerValue using Poseidon hash
+        field innerValue = if (assetPriceTiers_sku_oldCommitment_value[i].minQuantity != 0 && assetPriceTiers_sku_oldCommitment_value[i].price != 0) then poseidon([assetPriceTiers_sku_oldCommitment_value[i].minQuantity, assetPriceTiers_sku_oldCommitment_value[i].price]) else 0 fi
+
+        assetPriceTiers_sku_oldCommitment_value_field = if  innerValue != 0 then poseidon([assetPriceTiers_sku_oldCommitment_value_field, innerValue]) else assetPriceTiers_sku_oldCommitment_value_field fi
+        endfor
+
+          
+        // assetPriceTiers_sku_oldCommitment_commitment: preimage check
+
+
+        field assetPriceTiers_sku_oldCommitment_commitment_field = poseidon([\
+          assetPriceTiers_sku_stateVarId_field,\
+          assetPriceTiers_sku_oldCommitment_value_field,\
+          assetPriceTiers_sku_oldCommitment_owner_publicKey,\
+          assetPriceTiers_sku_oldCommitment_salt        ])
+
+
+        // assetPriceTiers_sku_oldCommitment_commitment: existence check
+
+
+        field assetPriceTiers_sku_commitmentRoot_check = checkRoot(\
+          assetPriceTiers_sku_oldCommitment_membershipWitness_siblingPath,\
+          assetPriceTiers_sku_oldCommitment_commitment_field,\
+          assetPriceTiers_sku_oldCommitment_membershipWitness_index\
+        )
+
+
+        // Note: Don't bother actually asserting existence, if the oldCommitment is a dummy:
+        assetPriceTiers_sku_commitmentRoot_check = if assetPriceTiers_sku_oldCommitment_isDummy == true then commitmentRoot else assetPriceTiers_sku_commitmentRoot_check fi
+
+
+        assert(\
+          field_to_bool_256(commitmentRoot)[8..256] == field_to_bool_256(assetPriceTiers_sku_commitmentRoot_check)[8..256]\
+        )
+
+
+        // prepare secret state 'assetPriceTiers_sku' for commitment
+
+        field assetPriceTiers_sku_newCommitment_value_field = poseidon([assetPriceTiers_sku[0].minQuantity, assetPriceTiers_sku[0].price])
+
+        for u32 i in 1..9 do
+        // Create the innerValue using Poseidon hash
+        field innerValue =  if (assetPriceTiers_sku[i].minQuantity != 0 && assetPriceTiers_sku[i].price != 0) then poseidon([assetPriceTiers_sku[i].minQuantity, assetPriceTiers_sku[i].price]) else 0 fi
+
+        assetPriceTiers_sku_newCommitment_value_field = if  innerValue != 0 then poseidon([assetPriceTiers_sku_newCommitment_value_field, innerValue]) else assetPriceTiers_sku_newCommitment_value_field fi
+        endfor
+
+        // assetPriceTiers_sku_newCommitment_commitment - preimage check
+
+        field assetPriceTiers_sku_newCommitment_commitment_check_field = poseidon([\
+          assetPriceTiers_sku_stateVarId_field,\
+          assetPriceTiers_sku_newCommitment_value_field,\
+          assetPriceTiers_sku_newCommitment_owner_publicKey,\
+          assetPriceTiers_sku_newCommitment_salt\
+        ])
+
+        assert(\
+          field_to_bool_256(assetPriceTiers_sku_newCommitment_commitment)[8..256] == field_to_bool_256(assetPriceTiers_sku_newCommitment_commitment_check_field)[8..256]\
+        )
+
+         return true
