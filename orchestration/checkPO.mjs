@@ -288,34 +288,6 @@ export class CheckPOManager {
 
 		// Encrypt pre-image for state variable purchaseOrder_purchaseOrderId as a backup:
 
-		let purchaseOrder_purchaseOrderId_ephSecretKey = generalise(utils.randomHex(31));
-
-		let purchaseOrder_purchaseOrderId_ephPublicKeyPoint = generalise(
-			scalarMult(
-				purchaseOrder_purchaseOrderId_ephSecretKey.hex(32),
-				config.BABYJUBJUB.GENERATOR
-			)
-		);
-
-		let purchaseOrder_purchaseOrderId_ephPublicKey = compressStarlightKey(
-			purchaseOrder_purchaseOrderId_ephPublicKeyPoint
-		);
-
-		while (purchaseOrder_purchaseOrderId_ephPublicKey === null) {
-			purchaseOrder_purchaseOrderId_ephSecretKey = generalise(utils.randomHex(31));
-
-			purchaseOrder_purchaseOrderId_ephPublicKeyPoint = generalise(
-				scalarMult(
-					purchaseOrder_purchaseOrderId_ephSecretKey.hex(32),
-					config.BABYJUBJUB.GENERATOR
-				)
-			);
-
-			purchaseOrder_purchaseOrderId_ephPublicKey = compressStarlightKey(
-				purchaseOrder_purchaseOrderId_ephPublicKeyPoint
-			);
-		}
-
 		const purchaseOrder_purchaseOrderId_bcipherText = encrypt(
 			[
 				BigInt(purchaseOrder_purchaseOrderId_newSalt.hex(32)),
@@ -323,21 +295,17 @@ export class CheckPOManager {
 				BigInt(generalise(purchaseOrder_purchaseOrderId_stateVarId_key).hex(32)),
 				...purchaseOrder_purchaseOrderId.slice(0, _order.length).flatMap(orderLine => [orderLine.sku.integer, orderLine.quantity.integer, orderLine.subTotal.integer])
 			],
-			purchaseOrder_purchaseOrderId_ephSecretKey.hex(32),
+			masterZkpSecretKey.hex(32),
 			[
-				decompressStarlightKey(purchaseOrder_purchaseOrderId_newOwnerPublicKey)[0].hex(
-					32
-				),
-				decompressStarlightKey(purchaseOrder_purchaseOrderId_newOwnerPublicKey)[1].hex(
-					32
-				),
-			]
+				decompressStarlightKey(masterZkpPublicKey)[0].hex(32),
+				decompressStarlightKey(masterZkpPublicKey)[1].hex(32),
+			].hex(32),
 		);
 
 		let purchaseOrder_purchaseOrderId_cipherText_combined = {
 			varName: "purchaseOrder a s u",
 			cipherText: purchaseOrder_purchaseOrderId_bcipherText,
-			ephPublicKey: purchaseOrder_purchaseOrderId_ephPublicKey.hex(32),
+			ephPublicKey: masterZkpPublicKey.hex(32),
 		};
 
 		BackupData.push(purchaseOrder_purchaseOrderId_cipherText_combined);
