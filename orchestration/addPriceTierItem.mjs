@@ -230,34 +230,6 @@ export class AddPriceTierItemManager {
 
 		// Encrypt pre-image for state variable assetPriceTiers_sku as a backup:
 
-		let assetPriceTiers_sku_ephSecretKey = generalise(utils.randomHex(31));
-
-		let assetPriceTiers_sku_ephPublicKeyPoint = generalise(
-			scalarMult(
-				assetPriceTiers_sku_ephSecretKey.hex(32),
-				config.BABYJUBJUB.GENERATOR
-			)
-		);
-
-		let assetPriceTiers_sku_ephPublicKey = compressStarlightKey(
-			assetPriceTiers_sku_ephPublicKeyPoint
-		);
-
-		while (assetPriceTiers_sku_ephPublicKey === null) {
-			assetPriceTiers_sku_ephSecretKey = generalise(utils.randomHex(31));
-
-			assetPriceTiers_sku_ephPublicKeyPoint = generalise(
-				scalarMult(
-					assetPriceTiers_sku_ephSecretKey.hex(32),
-					config.BABYJUBJUB.GENERATOR
-				)
-			);
-
-			assetPriceTiers_sku_ephPublicKey = compressStarlightKey(
-				assetPriceTiers_sku_ephPublicKeyPoint
-			);
-		}
-
 		const assetPriceTiers_sku_bcipherText = encrypt(
 			[
 				BigInt(assetPriceTiers_sku_newSalt.hex(32)),
@@ -265,21 +237,17 @@ export class AddPriceTierItemManager {
 				BigInt(generalise(assetPriceTiers_sku_stateVarId_key).hex(32)),
 				...assetPriceTiers_sku.slice(0, _priceTierItem.length).flatMap(tier => [generalise(tier.minQuantity).hex(32), generalise(tier.price).hex(32)])
 			],
-			assetPriceTiers_sku_ephSecretKey.hex(32),
+			masterZkpSecretKey.hex(32),
 			[
-				decompressStarlightKey(assetPriceTiers_sku_newOwnerPublicKey)[0].hex(
-					32
-				),
-				decompressStarlightKey(assetPriceTiers_sku_newOwnerPublicKey)[1].hex(
-					32
-				),
-			]
+				decompressStarlightKey(masterZkpPublicKey)[0].hex(32),
+				decompressStarlightKey(masterZkpPublicKey)[1].hex(32),
+			].hex(32),
 		);
 
 		let assetPriceTiers_sku_cipherText_combined = {
 			varName: "assetPriceTiers a s u",
 			cipherText: assetPriceTiers_sku_bcipherText,
-			ephPublicKey: assetPriceTiers_sku_ephPublicKey.hex(32),
+			ephPublicKey: masterZkpPublicKey.hex(32),
 		};
 
 		BackupData.push(assetPriceTiers_sku_cipherText_combined);

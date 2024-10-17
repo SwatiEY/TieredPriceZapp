@@ -377,33 +377,6 @@ export class CheckInvoiceManager {
 		let BackupData = [];
 
 		// Encrypt pre-image for state variable orderedQuantities_sku as a backup:
-		let orderedQuantities_sku_ephSecretKey = generalise(utils.randomHex(31));
-
-		let orderedQuantities_sku_ephPublicKeyPoint = generalise(
-			scalarMult(
-				orderedQuantities_sku_ephSecretKey.hex(32),
-				config.BABYJUBJUB.GENERATOR
-			)
-		);
-
-		let orderedQuantities_sku_ephPublicKey = compressStarlightKey(
-			orderedQuantities_sku_ephPublicKeyPoint
-		);
-
-		while (orderedQuantities_sku_ephPublicKey === null) {
-			orderedQuantities_sku_ephSecretKey = generalise(utils.randomHex(31));
-
-			orderedQuantities_sku_ephPublicKeyPoint = generalise(
-				scalarMult(
-					orderedQuantities_sku_ephSecretKey.hex(32),
-					config.BABYJUBJUB.GENERATOR
-				)
-			);
-
-			orderedQuantities_sku_ephPublicKey = compressStarlightKey(
-				orderedQuantities_sku_ephPublicKeyPoint
-			);
-		}
 		let orderedQuantities_sku_bcipherText = [];
 		let orderedQuantities_sku_cipherText_combined = [];
 
@@ -417,21 +390,17 @@ export class CheckInvoiceManager {
 				BigInt(generalise(orderedQuantities_sku_stateVarId).hex(32)),
 				BigInt(orderedQuantities.newValues[i].hex(32)),
 			],
-			orderedQuantities_sku_ephSecretKey.hex(32),
+			masterZkpSecretKey.hex(32),
 			[
-				decompressStarlightKey(orderedQuantities_sku_newOwnerPublicKey)[0].hex(
-					32
-				),
-				decompressStarlightKey(orderedQuantities_sku_newOwnerPublicKey)[1].hex(
-					32
-				),
-			]
+				decompressStarlightKey(masterZkpPublicKey)[0].hex(32),
+				decompressStarlightKey(masterZkpPublicKey)[1].hex(32),
+			].hex(32),
 		);
 
 		orderedQuantities_sku_cipherText_combined[i] = {
 			varName: "orderedQuantities a",
 			cipherText: orderedQuantities_sku_bcipherText[i],
-			ephPublicKey: orderedQuantities_sku_ephPublicKey.hex(32),
+			ephPublicKey: masterZkpPublicKey.hex(32),
 		};
 
 		BackupData.push(orderedQuantities_sku_cipherText_combined[i]);
