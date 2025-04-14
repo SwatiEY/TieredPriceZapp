@@ -85,9 +85,11 @@ for u32 index in 0..9 do
         )
         // orderedQuantities_sku_oldCommitment_nullifier : non-existence check
         
-        
+        orderedQuantities_sku_oldCommitment_owner_secretKey = if orderedQuantities_sku_oldCommitment_isDummy[index] then 0 else orderedQuantities_sku_oldCommitment_owner_secretKey fi
+ 
+        orderedQuantities_sku_oldCommitment_salt[index] = if orderedQuantities_sku_oldCommitment_isDummy[index] then 0 else orderedQuantities_sku_oldCommitment_salt[index] fi
 
-
+        orderedQuantities_sku_oldCommitment_value[index] = if orderedQuantities_sku_oldCommitment_isDummy[index] then 0 else orderedQuantities_sku_oldCommitment_value[index] fi
 
         // prepare secret state 'orderedQuantities_sku' for commitment
 
