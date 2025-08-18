@@ -80,16 +80,14 @@ for u32 index in 0..9 do
           orderedQuantities_sku_oldCommitment_salt[index]\
         ]) else orderedQuantities_sku_oldCommitment_nullifier[index] fi
 
-        assert(\
+    assert(\
         field_to_bool_256(orderedQuantities_sku_oldCommitment_nullifier[index])[8..256] == field_to_bool_256(orderedQuantities_sku_oldCommitment_nullifier_check_field)[8..256]\
-        )
-        // orderedQuantities_sku_oldCommitment_nullifier : non-existence check
-        
-        orderedQuantities_sku_oldCommitment_owner_secretKey = if orderedQuantities_sku_oldCommitment_isDummy[index] then 0 else orderedQuantities_sku_oldCommitment_owner_secretKey fi
- 
-        orderedQuantities_sku_oldCommitment_salt[index] = if orderedQuantities_sku_oldCommitment_isDummy[index] then 0 else orderedQuantities_sku_oldCommitment_salt[index] fi
+    )
+    // orderedQuantities_sku_oldCommitment_nullifier : non-existence check
 
-        orderedQuantities_sku_oldCommitment_value[index] = if orderedQuantities_sku_oldCommitment_isDummy[index] then 0 else orderedQuantities_sku_oldCommitment_value[index] fi
+    assert(!orderedQuantities_sku_oldCommitment_isDummy[index] || (orderedQuantities_sku_oldCommitment_owner_secretKey == 0))
+    assert(!orderedQuantities_sku_oldCommitment_isDummy[index] || (orderedQuantities_sku_oldCommitment_salt[index] == 0))
+    assert(!orderedQuantities_sku_oldCommitment_isDummy[index] || (orderedQuantities_sku_oldCommitment_value[index] == 0))
 
         // prepare secret state 'orderedQuantities_sku' for commitment
 

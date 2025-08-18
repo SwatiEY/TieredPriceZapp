@@ -68,15 +68,11 @@ assetPriceTiers_sku = priceTierItem
         )
         // assetPriceTiers_sku_oldCommitment_nullifier : non-existence check
         
-        assetPriceTiers_sku_oldCommitment_owner_secretKey = if assetPriceTiers_sku_oldCommitment_isDummy then 0 else assetPriceTiers_sku_oldCommitment_owner_secretKey fi
- 
-        assetPriceTiers_sku_oldCommitment_salt = if assetPriceTiers_sku_oldCommitment_isDummy then 0 else assetPriceTiers_sku_oldCommitment_salt fi
-
+        assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_owner_secretKey == 0))
+        assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_salt == 0))
         for u32 i in 1..9 do
-        assetPriceTiers_sku_oldCommitment_value[i].minQuantity = if  assetPriceTiers_sku_oldCommitment_isDummy then 0 else  assetPriceTiers_sku_oldCommitment_value[i].minQuantity fi
-
-        assetPriceTiers_sku_oldCommitment_value[i].price = if assetPriceTiers_sku_oldCommitment_isDummy then 0 else assetPriceTiers_sku_oldCommitment_value[i].price fi
-
+            assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_value[i].minQuantity == 0))
+            assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_value[i].price == 0))
         endfor
         
         // prepare secret state 'assetPriceTiers_sku' for commitment
