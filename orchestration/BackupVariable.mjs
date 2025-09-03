@@ -95,13 +95,13 @@ export async function backupVariable(_name) {
 				if (isMappingofArrayofStructs) {
 					value = [];
 					let structValue = {};
-					if(generalise(plainText[2]).integer === '26' ) {
+					if( generalise(plainText[2]).integer === '26' ) {
 						for(let i = 3; i < plainText.length; i+=2) {
 						structValue = {minQuantity: plainText[i], price: plainText[i+1]};
 						value.push(structValue);
 					}
 				} 
-				if(generalise(plainText[2]).integer === '50' ) {
+				if( generalise(plainText[2]).integer === '50' ) {
 					for(let i = 3; i < plainText.length; i+=3) {
 					structValue = {sku: plainText[i], quantity: plainText[i+1], subTotal: plainText[i+2]};
 					value.push(structValue);
@@ -145,7 +145,7 @@ export async function backupVariable(_name) {
 					}
 				});
 			}   
-			if(generalise(plainText[2]).integer === '50') {
+			if( generalise(plainText[2]).integer === '50') {
 				value = generalise(value);
 			value.forEach((purchaseOrder, i) => {
 				const innerValue = poseidonHash(
@@ -165,7 +165,6 @@ export async function backupVariable(_name) {
 				stateVarId = generalise(stateVarId);
 			}
 			else {
-				console.log(stateVarId)
 				newCommitment = generalise(
 					poseidonHash([
 						BigInt(stateVarId),

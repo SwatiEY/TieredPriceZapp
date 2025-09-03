@@ -69,10 +69,15 @@ export async function backupDataRetriever() {
 			let name = varName.replace(" a", "").replace(" s", "").replace(" u", "");
 			let isArray = false;
 			let isStruct = false;
+			let isMappingofArrayofStructs = false;
 			if (varName.includes(" a")) {
 				isArray = true;
 			} else if (varName.includes(" s")) {
 				isStruct = true;
+			}
+			if (varName.includes(" a") && varName.includes(" s") && varName.includes(" u")) {
+				isStruct = false;
+                isMappingofArrayofStructs = true;
 			}
 			const plainText = decrypt(cipherText, secretKey.hex(32), [
 				decompressStarlightKey(generalise(ephPublicKey))[0].hex(32),
@@ -90,16 +95,29 @@ export async function backupDataRetriever() {
 				console.log(`\tState variable StateVarId: ${plainText[2]}`);
 				mappingKey = generalise(plainText[1]);
 				console.log(`\tMapping Key: ${mappingKey.integer}`);
-				let reGenStateVarId = generalise(
-					utils.mimcHash(
-						[generalise(plainText[2]).bigInt, generalise(plainText[1]).bigInt],
-						"ALT_BN_254"
-					)
-				);
+				let reGenStateVarId = 
+					poseidonHash([BigInt(plainText[2]), BigInt(mappingKey.hex(32))]).hex(32);
 				stateVarId = reGenStateVarId;
-				console.log(`Regenerated StateVarId: ${reGenStateVarId.bigInt}`);
+				console.log(`Regenerated StateVarId: ${reGenStateVarId}`);
+				console.log(`plainText:`, plainText);
 				value = generalise(plainText[3]);
 				console.log(`\tValue: ${value.integer}`);
+				if (isMappingofArrayofStructs) {
+					value = [];
+					let structValue = {};
+					if( generalise(plainText[2]).integer === '26' ) {
+						for(let i = 3; i < plainText.length; i+=2) {
+						structValue = {minQuantity: plainText[i], price: plainText[i+1]};
+						value.push(structValue);
+					}
+				} 
+				if( generalise(plainText[2]).integer === '50' ) {
+					for(let i = 3; i < plainText.length; i+=3) {
+					structValue = {sku: plainText[i], quantity: plainText[i+1], subTotal: plainText[i+2]};
+					value.push(structValue);
+				}
+			} 
+			}
 			} else {
 				stateVarId = generalise(plainText[1]);
 				console.log(`\tStateVarId: ${plainText[1]}`);
@@ -120,15 +138,52 @@ export async function backupDataRetriever() {
 				hashInput.push(BigInt(publicKey.hex(32)));
 				hashInput.push(BigInt(salt.hex(32)));
 				newCommitment = generalise(poseidonHash(hashInput));
-			} else {
+			} else if (isMappingofArrayofStructs) {
+				console.log('here 2');
+				let hashInput = [BigInt(stateVarId)];
+				let newCommitment_value;
+				if(generalise(plainText[2]).integer === '26') {
+					value = generalise(value);
+				value.forEach((tier, i) => {
+					const innerValue = poseidonHash(
+						[BigInt(tier.minQuantity.hex(32)), BigInt(tier.price.hex(32))]
+					);
+					if (i === 0) {
+						newCommitment_value = innerValue;
+					} else {
+						newCommitment_value = poseidonHash([newCommitment_value.bigInt, innerValue.bigInt]);
+					}
+				});
+			}   
+			if( generalise(plainText[2]).integer === '50') {
+				value = generalise(value);
+			value.forEach((purchaseOrder, i) => {
+				const innerValue = poseidonHash(
+					[BigInt(purchaseOrder.sku.hex(32)), BigInt(purchaseOrder.quantity.hex(32)), BigInt(purchaseOrder.subTotal.hex(32))]
+				);
+				if (i === 0) {
+					newCommitment_value = innerValue;
+				} else {
+					newCommitment_value = poseidonHash([newCommitment_value.bigInt, innerValue.bigInt]);
+				}
+			});
+		}   
+			    hashInput.push(BigInt(newCommitment_value.hex(32)));
+				hashInput.push(BigInt(publicKey.hex(32)));
+				hashInput.push(BigInt(salt.hex(32)));
+				newCommitment = generalise(poseidonHash(hashInput));
+				stateVarId = generalise(stateVarId);
+			}
+			else {
 				newCommitment = generalise(
 					poseidonHash([
-						BigInt(stateVarId.hex(32)),
+						BigInt(stateVarId),
 						BigInt(value.hex(32)),
 						BigInt(publicKey.hex(32)),
 						BigInt(salt.hex(32)),
 					])
 				);
+				stateVarId = generalise(stateVarId);
 			}
 			if (!varName.includes(" u")) {
 				let oldCommitments = storedCommitments.filter(

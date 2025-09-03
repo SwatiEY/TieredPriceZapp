@@ -68,10 +68,13 @@ assetPriceTiers_sku = priceTierItem
         )
         // assetPriceTiers_sku_oldCommitment_nullifier : non-existence check
         
+        assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_owner_secretKey == 0))
+        assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_salt == 0))
+        for u32 i in 1..9 do
+            assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_value[i].minQuantity == 0))
+            assert(!assetPriceTiers_sku_oldCommitment_isDummy || (assetPriceTiers_sku_oldCommitment_value[i].price == 0))
+        endfor
         
-
-
-
         // prepare secret state 'assetPriceTiers_sku' for commitment
 
           field assetPriceTiers_sku_oldCommitment_value_field = poseidon([assetPriceTiers_sku_oldCommitment_value[0].minQuantity, assetPriceTiers_sku_oldCommitment_value[0].price])

@@ -348,7 +348,7 @@ export class CheckInvoiceManager {
 		const allInputs = [
 			invoice.map(invoiceLine => [invoiceLine.sku.integer, invoiceLine.quantity.integer, invoiceLine.subTotal.integer]),
 			purchaseOrderId.integer,
-			secretKey.integer,
+			orderedQuantities.commitmentExists[0] ? secretKey.integer : generalise(0).integer,
 			orderedQuantities.nullifiers.map(n => n.integer),
 			orderedQuantities.prevValues.map(v => v.integer),
 			orderedQuantities.prevSalts.map(s => s.integer),
